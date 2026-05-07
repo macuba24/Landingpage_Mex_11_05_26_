@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Agent | Master Console</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #06090E;
+            --card: #0F1724;
+            --red: #DC2626;
+            --blue: #3B82F6;
+            --text: #EDF2F7;
+            --text-muted: #A0AEC0;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
+        h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* HERO */
+        .hero { padding: 120px 5% 80px; text-align: center; background: radial-gradient(circle at top, rgba(220, 38, 38, 0.15), transparent); }
+        .hero h1 { font-size: clamp(50px, 10vw, 110px); line-height: 0.85; margin: 0; }
+        .hero h1 span { color: var(--red); }
+
+        .ticker-box { margin: 40px auto; border: 1px solid var(--red); display: inline-block; padding: 15px 30px; border-radius: 4px; }
+        .ticker-val { color: var(--red); font-size: clamp(24px, 4vw, 40px); font-weight: bold; font-family: 'JetBrains Mono'; }
+
+        /* DASHBOARD PREVIEW */
+        .dashboard-grid { max-width: 1200px; margin: 60px auto; background: #080C14; border: 1px solid var(--border); border-radius: 12px; padding: 40px; display: grid; grid-template-columns: 1fr 300px; gap: 40px; }
+        .d-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .d-card { background: var(--card); padding: 25px; border-radius: 8px; border: 1px solid var(--border); }
+        .d-card.alert { border-color: var(--red); box-shadow: 0 0 15px rgba(220, 38, 38, 0.2); }
+
+        /* PRICING */
+        .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: 80px auto; padding: 0 5%; }
+        .p-card { background: var(--card); border: 1px solid var(--border); padding: 50px; border-radius: 16px; position: relative; }
+        .p-card.featured { border: 2px solid var(--red); transform: scale(1.05); }
+
+        /* BUTTONS */
+        .btn { background: var(--red); color: white; text-decoration: none; padding: 22px 40px; border-radius: 6px; font-family: 'Bebas Neue'; font-size: 28px; display: block; text-align: center; transition: 0.3s; border: none; cursor: pointer; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(220, 38, 38, 0.4); }
+        .btn-outline { background: transparent; border: 1px solid var(--red); margin-top: 15px; }
+
+        /* FOUNDER */
+        .founder-box { max-width: 1000px; margin: 100px auto; display: grid; grid-template-columns: 300px 1fr; gap: 60px; align-items: center; padding: 0 5%; }
+        .founder-img { width: 100%; aspect-ratio: 1; border: 1px solid var(--red); border-radius: 12px; object-fit: cover; object-position: center 22%; display: block; }
+
+        input { width: 100%; padding: 15px; margin-bottom: 20px; background: #000; border: 1px solid #333; color: #fff; box-sizing: border-box; }
+
+        @media (max-width: 900px) { .dashboard-grid, .founder-box { grid-template-columns: 1fr; } .p-card.featured { transform: none; } }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="mono" style="color: var(--red); margin-bottom: 20px; font-weight: bold;">[ INDUSTRY LOSSES THIS HOUR ]</div>
+        <div class="ticker-box"><span class="ticker-val">$1,540,491</span></div>
+        <h1>ES IST <span>02:47 UHR.</span><br>DEINE LINIE STEHT.<br>SAP ZEIGT NICHTS.</h1>
+        <p style="font-size: 24px; max-width: 850px; margin: 40px auto; color: var(--text-muted);">
+            Während SAP noch "synchronisiert" — verlierst du <span style="color:var(--red); font-weight:bold;">$833 jede Minute.</span><br>Control Agent schließt die Lücke zwischen ERP-Verzögerung und Shopfloor-Realität.
+        </p>
+        <div style="margin-top: 50px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="#audit" class="btn" style="min-width: 300px;">Kostenloses Audit anfordern →</a>
+            <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" class="btn btn-outline" style="min-width: 300px;">Zum Live Dashboard ↗</a>
+        </div>
+    </header>
+
+    <section class="dashboard-grid">
+        <div class="d-cards">
+            <div class="d-card"><div class="mono" style="color:var(--blue); font-size:12px;">D1 - TEAM</div><div style="font-weight:bold; font-size:18px; margin-top:10px;">S. Weber // 8D Champion</div></div>
+            <div class="d-card"><div class="mono" style="color:var(--blue); font-size:12px;">D2 - PROBLEM</div><div style="font-weight:bold; font-size:18px; margin-top:10px;">Halle 4 Performance Gap</div></div>
+            <div class="d-card alert"><div class="mono" style="color:var(--red); font-size:12px;">D3 - ACTION DUE</div><div style="font-weight:bold; font-size:18px; margin-top:10px; color:var(--red);">Interim Containment</div></div>
+            <div class="d-card"><div class="mono" style="color:var(--blue); font-size:12px;">D4 - PENDING</div><div style="font-weight:bold; font-size:18px; margin-top:10px;">Root Cause Analysis</div></div>
+        </div>
+        <div style="background:#000; border-radius:12px; padding:30px; text-align:center; border:1px solid #222;">
+            <div style="width:60px; height:60px; background:var(--red); border-radius:50%; margin:0 auto; box-shadow: 0 0 30px var(--red);"></div>
+            <h3 style="color:var(--red); margin-top:20px;">LINE STOPPED</h3>
+            <p class="mono" style="font-size:10px; color:#444;">LATENCY: 0.4ms<br>SOURCE: SAP-MARD</p>
+            <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" style="color:var(--blue); font-size:12px; text-decoration:none; font-weight:bold;">LIVE KONSOLE ÖFFNEN ↗</a>
+        </div>
+    </section>
+
+    <section class="founder-box">
+        <img class="founder-img" src="rainer.png" alt="Porträt von Rainer Hampicke">
+        <div>
+            <div class="mono" style="color:var(--red);">// 20+ Jahre Tier-1 Erfahrung</div>
+            <h2 style="font-size:45px; margin:10px 0;">RAINER HAMPICKE</h2>
+            <p style="font-size:22px; font-style:italic; border-left: 4px solid var(--red); padding-left:25px;">
+                "Ich verkaufe keine Software. Ich gebe Ihnen Ihren Schlaf zurück."
+            </p>
+            <p style="color:var(--text-muted);">
+                Ich war selbst dort. Ich kenne den Druck einer stehenden Linie und das Chaos fehlender SAP-Daten um 2 Uhr nachts. Control Agent wurde auf dem Shopfloor geboren, nicht im Labor.
+            </p>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="p-card">
+            <h3 style="font-size:32px;">Pilot</h3>
+            <div class="mono" style="font-size:40px; margin:20px 0;">$12k <span style="font-size:14px; color:#64748B;">/ jährlich</span></div>
+            <ul style="color:var(--text-muted); font-size:14px; padding-left:20px;">
+                <li>Einzelsystem Implementierung</li>
+                <li>Echtzeit 2:47 AM Alarme</li>
+                <li>8D Rückverfolgbarkeit (IATF 10.2)</li>
+            </ul>
+            <a href="#audit" class="btn btn-outline" style="font-size:18px;">Audit anfordern →</a>
+        </div>
+        <div class="p-card featured">
+            <div style="position:absolute; top:-15px; left:50%; transform:translateX(-50%); background:var(--red); padding:5px 15px; font-size:12px; font-weight:bold;">BELIEBTESTE WAHL</div>
+            <h3 style="font-size:32px;">Enterprise</h3>
+            <div class="mono" style="font-size:40px; margin:20px 0;">$24k <span style="font-size:14px; color:#64748B;">/ jährlich</span></div>
+            <ul style="color:var(--text); font-size:14px; padding-left:20px;">
+                <li>Multi-Plant Intelligenz</li>
+                <li>Alle Agenten aktiv (Supply, Flow, Quality)</li>
+                <li>Echtzeit Finanz-Counter in USD</li>
+            </ul>
+            <a href="#audit" class="btn" style="font-size:18px;">Audit anfordern →</a>
+        </div>
+    </section>
+
+    <section id="audit" style="max-width:700px; margin:100px auto; background:var(--card); padding:60px; border-radius:16px; border:1px solid var(--red);">
+        <h2 style="text-align:center; font-size:40px; margin-top:0;">Audit anfordern</h2>
+        <p class="mono" style="text-align:center; font-size:12px; color:var(--text-muted); margin-bottom:40px;">// Kostenlos · Unverbindlich · Analyse innerhalb 48h</p>
+        <form action="https://formspree.io/f/mqakppov" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Business Email" required>
+            <input type="number" name="cost" placeholder="Geschätzte Kosten pro Stunde Stillstand ($)">
+            <button type="submit" class="btn">Meinen ROI berechnen →</button>
+        </form>
+    </section>
+
+    <footer style="text-align:center; padding:60px; color:#222; font-family:'JetBrains Mono'; font-size:10px; letter-spacing:2px;">
+        HOSTED US-WEST · SOC2 · IATF 16949 · MADE FOR AUTOMOTIVE EXCELLENCE
+    </footer>
+
+</body>
+</html>
