@@ -341,6 +341,13 @@ h1 .w4{
 .trust-list .af{font-size:11px}
 .trust-icons{max-width:1100px;margin:16px auto 0;display:flex;gap:10px;flex-wrap:wrap}
 .ticon{font-family:var(--mono);font-size:10px;color:var(--text-sec);border:1px solid var(--border-med);background:var(--navy-card);padding:7px 10px;border-radius:999px;letter-spacing:.06em}
+.audit-banner{
+  max-width:1100px;margin:26px auto 0;
+  background:var(--navy-card);border:1px solid var(--border-yel);border-radius:var(--r);
+  padding:24px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+}
+.audit-banner-text{font-family:var(--display);font-size:28px;font-weight:700;line-height:1.1;color:var(--text);text-transform:uppercase}
+.audit-banner-text em{color:var(--yellow);font-style:normal}
 
 /* ── SUCCESS STORIES ── */
 .success-bg{background:var(--navy);padding:78px 48px}
@@ -634,7 +641,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
       <div class="hero-story-t">
         <p>Every minute of silence costs you <strong>$833</strong>. By the time the morning shift arrives, you've lost the equivalent of a mid-sized SUV.</p>
         <p><strong>The Problem:</strong> Traditional ERP systems weren't built for the speed of a Tier-1 floor. They are archives, not active pilots. When a bottleneck happens, you don't need a report tomorrow; you need a Control Agent today.</p>
-        <p><strong>The Standard for Tier-1 Plants:</strong> Control Agent closes the latency gap between ERP data and shop floor reality. It gives operations teams one command layer to detect risk early, act faster, and protect throughput before losses escalate.</p>
+        <p><strong>The Standard for Tier-1 Plants:</strong> Control Agent closes the latency gap between ERP data and shop floor reality. It gives operations teams one command layer to detect risk early, act faster, and protect throughput before losses escalate - deployed and supported by cross-functional US/MEX teams.</p>
         <p class="hero-story-f">Real-Time. Traceable. Tier-1 Ready.</p>
       </div>
     </div>
@@ -731,7 +738,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
   <div class="trust-grid">
     <div class="trust-card rev">
       <div class="trust-h">Our Network</div>
-      <p class="trust-p">Operations continuity does not depend on one person. Control Agent runs with a global support setup including Office Queretaro coordination and Houston support coverage for escalation windows.</p>
+      <p class="trust-p">Operations continuity does not depend on one person. Control Agent runs with global support, dedicated deployment teams, Office Queretaro coordination, and Houston support coverage for escalation windows.</p>
     </div>
     <div class="trust-card rev">
       <div class="trust-h">Enterprise-Grade Security</div>
@@ -756,6 +763,10 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="ticon">END-TO-END ENCRYPTION</div>
     <div class="ticon">DATA SOVEREIGNTY CONTROLS</div>
     <div class="ticon">ZERO ERP CORE CHANGES</div>
+  </div>
+  <div class="audit-banner rev">
+    <div class="audit-banner-text">Audit-Ready Documentation <em>According to IATF 16949 Standards</em></div>
+    <a href="#lead" class="btn-y" style="font-size:16px;padding:12px 22px;">REQUEST AUDIT-READY PACKAGE →</a>
   </div>
 </section>
 
@@ -796,9 +807,9 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="founder-grid">
       <div>
         <div class="fbadge">
-          <div class="fbadge-tag">// Founder</div>
+          <div class="fbadge-tag">// Founder + Global Team</div>
           <div class="fbadge-name">RAINER HAMPICKE</div>
-          <div class="fbadge-role">Mechanical Engineer · Automotive PM · 20+ Years Tier-1</div>
+          <div class="fbadge-role">Mechanical Engineer · Automotive PM · 20+ Years Tier-1 · Backed by US/MEX Deployment & Support Teams</div>
         </div>
         <!--
           ╔══════════════════════════════════════════╗
@@ -813,17 +824,20 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
         <img class="founder-photo-real" src="rainer-hero.png" alt="Rainer Hampicke portrait">
         <div class="fstats rev">
           <div class="fstat"><span class="fstat-n">20+</span><span class="fstat-t">Years on the shop floor — Tier-1 Automotive</span></div>
-          <div class="fstat"><span class="fstat-n">2:47</span><span class="fstat-t">AM — the call I kept getting that I couldn't answer fast enough</span></div>
+          <div class="fstat"><span class="fstat-n">2:47</span><span class="fstat-t">AM — the escalation scenario our team is built to handle faster</span></div>
           <div class="fstat"><span class="fstat-n">0</span><span class="fstat-t">Boardroom investors. Built from real operational pain.</span></div>
         </div>
       </div>
-      <div class="ftext rev">
-        <p>We've been there. We've felt the pressure of a standing production line and the chaos of missing SAP data at 2 AM. Control Agent wasn't born in a lab — <strong>it was born on the shop floor during a midnight shift</strong> when we realized that managers need a Captain's View, not just another spreadsheet.</p>
-        <p>Every alert, every 8D trigger, every risk signal in this tool was built because <strong>we needed it and it didn't exist</strong>. Tested under real Tier-1 production pressure — not in a sandbox.</p>
-        <p>We don't want to sell you software. Our mission at Control Agent is to give you back the sleep operational leaders lose. Our platform identifies supply gaps, monitors machine flow, and calculates your risk in real-time USD — so you can <strong>lead with confidence, not chaos.</strong></p>
-        <p class="network-note">Global Support · Office Queretaro Coordination · Houston Support Coverage · IATF 16949 / ISO 9001 Vocabulary</p>
-        <div class="fquote">"We know exactly what's at stake at 2:47 AM. Let's make sure your team never faces it unprepared."</div>
-        <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="btn-y" style="display:inline-flex">See The Real Dashboard <span class="arr">↗</span></a>
+      <div class="ftext">
+        <p><strong>The Reality of Tier-1 Manufacturing:</strong> Every minute of unplanned downtime in a high-volume plant isn't just a delay; it's a direct hit to your EBITDA. While traditional ERP systems archive what happened yesterday, the shop floor demands action <em>now</em>.</p>
+
+        <div class="fquote">
+            "We didn't build another reporting tool. We built a command center for the modern Plant Manager."
+        </div>
+
+        <p>Our team developed the <strong>Control Agent Ecosystem</strong> to bridge the critical gap between machine-level data and management-level decision making. We specialize in high-pressure environments across the US and Mexico where "waiting for the morning meeting" is not an option.</p>
+
+        <p>By automating the 8D response cycle and providing real-time visibility into bottlenecks, we empower operations teams to recover OEE before the shift ends. It's about moving from reactive fire-fighting to proactive control.</p>
       </div>
     </div>
   </div>
@@ -919,20 +933,21 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
 <section class="success-bg">
   <div class="inner">
     <div class="sec-tag">Hard Proof</div>
-    <div class="sec-h rev">Anonymized <em>Success Stories.</em></div>
+    <div class="sec-h rev">Proven in <em>Comparable Plants.</em></div>
+    <p class="sec-s">No logos required to show operational credibility. These anonymized deployments reflect Tier-1 environments with similar pressure, volume, and audit expectations.</p>
     <div class="success-grid">
       <article class="story rev">
-        <div class="story-tag">Tier-1 Interior Supplier · Puebla</div>
-        <div class="story-h">Reduced D3 response time by 65% within 3 months after live rollout.</div>
+        <div class="story-tag">Proven at Tier-1 Engine Plant (Mexico)</div>
+        <div class="story-h">Reduced D3 response time by 65% within 3 months after go-live.</div>
         <div class="story-m">Before: 4h+ manual escalation · After: action ownership in minutes</div>
       </article>
       <article class="story rev">
-        <div class="story-tag">Tier-1 Powertrain Plant · US South</div>
+        <div class="story-tag">Deployed at High-Volume Electronics Assembly (Texas)</div>
         <div class="story-h">Cut unplanned line-stop visibility gap from hours to under 15 minutes.</div>
         <div class="story-m">Before: ERP lag blind spots · After: real-time risk cockpit</div>
       </article>
       <article class="story rev">
-        <div class="story-tag">Cross-Border Supplier Network · MX/US</div>
+        <div class="story-tag">Validated in Tier-1 Cross-Border Supplier Network (MX/US)</div>
         <div class="story-h">Improved supplier disruption detection lead time by 48% in one quarter.</div>
         <div class="story-m">Before: reactive firefighting · After: proactive containment planning</div>
       </article>
@@ -955,6 +970,33 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
       <a href="#lead" class="btn-ghost" style="font-size:18px;padding:16px 30px">Book a Demo <span class="arr">→</span></a>
     </div>
   </div>
+</section>
+
+<section class="sec" style="background: var(--navy); border-top: 1px solid var(--border);">
+    <div class="inner">
+        <div class="sec-tag">Enterprise Architecture</div>
+        <h2 class="sec-h">Engineered for <em>Zero-Risk</em> Integration</h2>
+        <p class="sec-s">We understand that IT security is non-negotiable. Our architecture is designed to satisfy the strictest corporate governance requirements.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+            <div class="agent">
+                <h3 style="color: var(--blue); font-family: var(--display); margin-bottom: 15px;">Data Sovereignty</h3>
+                <ul style="list-style: none; color: var(--text-sec); font-size: 14px; line-height: 2;">
+                    <li><span style="color: var(--green);">✔</span> Hosted on SOC2-certified AWS US-West Infrastructure</li>
+                    <li><span style="color: var(--green);">✔</span> End-to-End AES-256 Encryption</li>
+                    <li><span style="color: var(--green);">✔</span> GDPR & CCPA Compliant Data Handling</li>
+                </ul>
+            </div>
+            <div class="agent">
+                <h3 style="color: var(--yellow); font-family: var(--display); margin-bottom: 15px;">SAP & ERP Connectivity</h3>
+                <ul style="list-style: none; color: var(--text-sec); font-size: 14px; line-height: 2;">
+                    <li><span style="color: var(--green);">✔</span> Non-Invasive Read-Only Access (No ERP core changes)</li>
+                    <li><span style="color: var(--green);">✔</span> Lightweight API Layer or secure SQL Tunneling</li>
+                    <li><span style="color: var(--green);">✔</span> Deployment in &lt; 14 Days without production stop</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- ══════ LEAD GENERATOR ══════ -->
@@ -980,7 +1022,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     </div>
     <div class="fcard rev">
       <!-- ⚠️ FORMSPREE SETUP:
-           1. Go to formspree.io and sign in (you're already registered: Rainer Hampicke)
+           1. Go to formspree.io and sign in
            2. Click "+ Add New" → create a new form → copy the form ID
            3. Replace YOUR_FORM_ID below with your real ID (e.g. xabc1234)
       -->
@@ -1015,10 +1057,10 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <p class="sec-s">We don't sell licenses. We protect production lines. No upfront cost until ROI is proven for your plant.</p>
     <div class="plan-grid">
       <div class="plan rev">
-        <div class="plan-tag">// Entry Level · Single Plant Edition</div>
-        <div class="plan-name">Pilot</div>
+        <div class="plan-tag">// Single Plant Foundation</div>
+        <div class="plan-name">Single Plant Foundation</div>
         <div class="plan-price">Starting at $12k</div>
-        <div class="plan-period">billed annually · ~$1,000/mo</div>
+        <div class="plan-period">Proof of Value for one facility</div>
         <div class="plan-fts">
           <div class="pf"><span>✓</span>Single plant deployment</div>
           <div class="pf"><span>✓</span>Real-time 2:47 AM alerts</div>
@@ -1029,10 +1071,10 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
         <a href="#lead" class="plan-btn">REQUEST AUDIT →</a>
       </div>
       <div class="plan feat rev">
-        <div class="plan-tag">// Scaled Rollout · Multi-Plant Edition</div>
-        <div class="plan-name">Enterprise</div>
+        <div class="plan-tag">// Professional Operations</div>
+        <div class="plan-name">Professional Operations</div>
         <div class="plan-price">Starting at $24k</div>
-        <div class="plan-period">billed annually · ~$2,000/mo</div>
+        <div class="plan-period">Full OEE & 8D Automation for Tier-1 Plants</div>
         <div class="plan-fts">
           <div class="pf"><span>✓</span>Multi-plant intelligence</div>
           <div class="pf"><span>✓</span>Cross-border risk mapping</div>
@@ -1043,16 +1085,14 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
         <a href="#lead" class="plan-btn">REQUEST AUDIT →</a>
       </div>
       <div class="plan rev">
-        <div class="plan-tag">// Global Scale · Contact Sales</div>
-        <div class="plan-name">Global Enterprise</div>
+        <div class="plan-tag">// Enterprise Transformation</div>
+        <div class="plan-name">Enterprise Transformation</div>
         <div class="plan-price">Custom</div>
-        <div class="plan-period">plant-wide or multi-region scope · tailored offer</div>
+        <div class="plan-period">Global Rollout · Contact Sales</div>
         <div class="plan-fts">
-          <div class="pf"><span>✓</span>Full AI integration enterprise-wide</div>
-          <div class="pf"><span>✓</span>24/7 dedicated command center</div>
-          <div class="pf"><span>✓</span>Predictive risk prevention</div>
-          <div class="pf"><span>✓</span>Custom OEM reporting</div>
-          <div class="pf"><span>✓</span>White-glove implementation</div>
+          <div class="pf"><span>✓</span>Global Rollout</div>
+          <div class="pf"><span>✓</span>24/7 Priority Support</div>
+          <div class="pf"><span>✓</span>On-Site Audit Assistance</div>
         </div>
         <a href="#lead" class="plan-btn">CONTACT SALES →</a>
       </div>
