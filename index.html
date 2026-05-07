@@ -301,6 +301,7 @@ h1 .w4{
 .proof-cell{background:var(--navy-mid);padding:28px 20px;text-align:center}
 .proof-n{font-family:var(--display);font-size:40px;font-weight:700;color:var(--yellow);line-height:1}
 .proof-l{font-family:var(--mono);font-size:10px;color:var(--text-sec);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;line-height:1.4}
+.proof-trusted{max-width:1100px;margin:18px auto 0;font-family:var(--mono);font-size:11px;color:var(--text-sec);letter-spacing:.06em;text-align:center}
 
 /* ── SECTIONS ── */
 .sec{padding:88px 48px}
@@ -338,6 +339,8 @@ h1 .w4{
 .trust-p{font-size:14px;color:var(--text-sec);line-height:1.7}
 .trust-list{display:flex;flex-direction:column;gap:8px}
 .trust-list .af{font-size:11px}
+.trust-icons{max-width:1100px;margin:16px auto 0;display:flex;gap:10px;flex-wrap:wrap}
+.ticon{font-family:var(--mono);font-size:10px;color:var(--text-sec);border:1px solid var(--border-med);background:var(--navy-card);padding:7px 10px;border-radius:999px;letter-spacing:.06em}
 
 /* ── SUCCESS STORIES ── */
 .success-bg{background:var(--navy);padding:78px 48px}
@@ -510,6 +513,7 @@ input::placeholder{color:var(--text-dim)}
 .submit-btn:hover{background:#ddb214;transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,197,24,.3)}
 .form-disc{font-family:var(--mono);font-size:10px;color:var(--text-dim);text-align:center;margin-top:10px;letter-spacing:.06em}
 .form-support{font-family:var(--mono);font-size:10px;color:var(--yellow);text-align:center;letter-spacing:.08em;margin-top:8px}
+.form-contact{font-family:var(--mono);font-size:10px;color:var(--text-sec);text-align:center;letter-spacing:.06em;margin-top:8px}
 .form-success{display:none;flex-direction:column;align-items:center;text-align:center;padding:32px 16px;gap:14px}
 .form-success.show{display:flex}
 .fs-icon{font-size:44px}
@@ -555,6 +559,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
 .flinks a:hover{color:var(--text-sec)}
 .fcopy{font-family:var(--mono);font-size:10px;color:var(--text-dim)}
 .fhotline{font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:.08em}
+.fops{font-family:var(--mono);font-size:10px;color:var(--text-sec);letter-spacing:.08em}
 
 /* ── SCROLL REVEAL ── */
 .rev{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
@@ -629,12 +634,12 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
       <div class="hero-story-t">
         <p>Every minute of silence costs you <strong>$833</strong>. By the time the morning shift arrives, you've lost the equivalent of a mid-sized SUV.</p>
         <p><strong>The Problem:</strong> Traditional ERP systems weren't built for the speed of a Tier-1 floor. They are archives, not active pilots. When a bottleneck happens, you don't need a report tomorrow; you need a Control Agent today.</p>
-        <p><strong>Our Mission:</strong> We built Control Agent because we've stood on those floors. We've seen the gap between what the screen shows and what the machines do. We don't replace your system - we give it eyes and a voice before the loss becomes critical.</p>
+        <p><strong>The Standard for Tier-1 Plants:</strong> Control Agent closes the latency gap between ERP data and shop floor reality. It gives operations teams one command layer to detect risk early, act faster, and protect throughput before losses escalate.</p>
         <p class="hero-story-f">Real-Time. Traceable. Tier-1 Ready.</p>
       </div>
     </div>
     <div class="hero-btns">
-      <a href="#lead" class="btn-y">Get My Free Audit <span class="arr">→</span></a>
+      <a href="#lead" class="btn-y">Book a Demo <span class="arr">→</span></a>
       <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="btn-ghost">Open Dashboard <span class="arr">↗</span></a>
     </div>
     <div class="trust-row">
@@ -662,6 +667,32 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     </div>
   </div>
 </section>
+
+<div style="background: var(--navy-mid); border-bottom: 1px solid var(--border); padding: 25px 0;">
+    <div class="inner" style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 30px; opacity: 0.8;">
+
+        <div style="text-align: center;">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--yellow); letter-spacing: 0.1em; margin-bottom: 5px;">AUDIT READY</div>
+            <div style="font-family: var(--display); font-size: 18px; font-weight: 700; color: var(--text);">IATF 16949</div>
+        </div>
+
+        <div style="text-align: center;">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--blue); letter-spacing: 0.1em; margin-bottom: 5px;">CLOUD SECURITY</div>
+            <div style="font-family: var(--display); font-size: 18px; font-weight: 700; color: var(--text);">AWS US-WEST</div>
+        </div>
+
+        <div style="text-align: center;">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--green); letter-spacing: 0.1em; margin-bottom: 5px;">DATA PRIVACY</div>
+            <div style="font-family: var(--display); font-size: 18px; font-weight: 700; color: var(--text);">SOC2 COMPLIANT</div>
+        </div>
+
+        <div style="text-align: center;">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--text-sec); letter-spacing: 0.1em; margin-bottom: 5px;">ERP CONNECT</div>
+            <div style="font-family: var(--display); font-size: 18px; font-weight: 700; color: var(--text);">SAP NETWEAVER</div>
+        </div>
+
+    </div>
+</div>
 
 <!-- STRIP -->
 <div class="strip">
@@ -692,6 +723,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="proof-cell rev"><div class="proof-n">IATF</div><div class="proof-l">16949 Compliant</div></div>
     <div class="proof-cell rev"><div class="proof-n">&lt;15m</div><div class="proof-l">To First Risk Signal</div></div>
   </div>
+  <div class="proof-trusted">Trusted by leaders in interior, powertrain, and electronics manufacturing. Developed for IATF 16949 audited environments.</div>
 </div>
 
 <!-- ENTERPRISE TRUST -->
@@ -717,6 +749,13 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
         <div class="af">Typical implementation in under 14 days</div>
       </div>
     </div>
+  </div>
+  <div class="trust-icons rev">
+    <div class="ticon">AWS US-WEST HOSTING</div>
+    <div class="ticon">SOC2 COMPLIANT ARCHITECTURE</div>
+    <div class="ticon">END-TO-END ENCRYPTION</div>
+    <div class="ticon">DATA SOVEREIGNTY CONTROLS</div>
+    <div class="ticon">ZERO ERP CORE CHANGES</div>
   </div>
 </section>
 
@@ -783,7 +822,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
         <p>Every alert, every 8D trigger, every risk signal in this tool was built because <strong>we needed it and it didn't exist</strong>. Tested under real Tier-1 production pressure — not in a sandbox.</p>
         <p>We don't want to sell you software. Our mission at Control Agent is to give you back the sleep operational leaders lose. Our platform identifies supply gaps, monitors machine flow, and calculates your risk in real-time USD — so you can <strong>lead with confidence, not chaos.</strong></p>
         <p class="network-note">Global Support · Office Queretaro Coordination · Houston Support Coverage · IATF 16949 / ISO 9001 Vocabulary</p>
-        <div class="fquote">"I know exactly what's at stake at 2:47 AM. Let's make sure you never face it unprepared."</div>
+        <div class="fquote">"We know exactly what's at stake at 2:47 AM. Let's make sure your team never faces it unprepared."</div>
         <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="btn-y" style="display:inline-flex">See The Real Dashboard <span class="arr">↗</span></a>
       </div>
     </div>
@@ -794,7 +833,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
 <section class="sec how-bg">
   <div class="inner">
     <div class="sec-tag">How It Works</div>
-    <div class="sec-h rev">Live In <em>15 Minutes.</em></div>
+    <div class="sec-h rev">Live In <em>10 Working Days.</em></div>
     <p class="sec-s">No lengthy implementation. No pre-sales theater. You log in, you see your risk number, you act.</p>
     <div class="steps">
       <div class="step rev"><div class="step-n">01</div><div class="step-name">Connect</div><div class="step-desc">Plug-and-play middle layer. Zero changes to your existing SAP core required. Typical implementation in under 14 days.</div></div>
@@ -913,7 +952,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <!-- CTA after seeing dashboard — highest psychological moment -->
     <div class="dashsec-cta">
       <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="btn-y" style="font-size:18px;padding:16px 36px">Open Live Dashboard <span class="arr">↗</span></a>
-      <a href="#lead" class="btn-ghost" style="font-size:18px;padding:16px 30px">Get My Free Audit <span class="arr">→</span></a>
+      <a href="#lead" class="btn-ghost" style="font-size:18px;padding:16px 30px">Book a Demo <span class="arr">→</span></a>
     </div>
   </div>
 </section>
@@ -923,7 +962,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
   <div class="lead-glow"></div>
   <div class="lead-inner">
     <div>
-      <div class="lead-pre">// Strategic Impact Audit</div>
+      <div class="lead-pre">// Strategic Demo & Impact Audit</div>
       <div class="lead-h">Stop Waiting For<br><em>The Next Call.</em></div>
       <p class="lead-p">Register now and receive your personalized ROI report — based on the actual KPIs of your plant. No generic pitch deck. No sales pressure. Just your number.</p>
       <div class="lead-bullets">
@@ -946,7 +985,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
            3. Replace YOUR_FORM_ID below with your real ID (e.g. xabc1234)
       -->
       <div id="formBody">
-        <div class="fc-title">Request Your Audit</div>
+        <div class="fc-title">Book Your Demo</div>
         <div class="fc-sub">// Free · No commitment · Response within 48h</div>
         <form id="leadForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="fg-row">
@@ -990,15 +1029,16 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
             <div class="roi-box-note">Based on 1 stop × 4.5h avg downtime — conservative estimate</div>
           </div>
           <input type="hidden" name="_subject" value="New Control Agent Lead – Strategic Impact Audit">
-          <button type="submit" class="submit-btn">Request My Free Audit <span>→</span></button>
+          <button type="submit" class="submit-btn">Book My Demo <span>→</span></button>
           <div class="form-disc">NO SPAM · NO PRE-SALES · YOUR BUSINESS CASE FIRST</div>
+          <div class="form-contact">US/MEX Hotline: +1 (713) 555-0149 · +52 (222) 555-0149</div>
           <div class="form-support">24/7 PRIORITY SUPPORT FOR ENTERPRISE CLIENTS</div>
         </form>
       </div>
       <div class="form-success" id="formSuccess">
         <div class="fs-icon">✅</div>
         <div class="fs-title">You're In.</div>
-        <div class="fs-sub">Your audit request has been received.<br>Rainer will personally review your plant profile and respond within 48 hours with your custom ROI report.<br><br>Feel free to explore the live dashboard in the meantime.</div>
+        <div class="fs-sub">Your audit request has been received.<br>Our operations and solution team will review your plant profile and respond within 48 hours with your custom ROI report.<br><br>Feel free to explore the live dashboard in the meantime.</div>
         <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="btn-y" style="margin-top:8px">Open Dashboard ↗</a>
       </div>
     </div>
@@ -1013,7 +1053,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <p class="sec-s">We don't sell licenses. We protect production lines. No upfront cost until ROI is proven for your plant.</p>
     <div class="plan-grid">
       <div class="plan rev">
-        <div class="plan-tag">// Single Plant</div>
+        <div class="plan-tag">// Entry Level · Single Plant Edition</div>
         <div class="plan-name">Pilot</div>
         <div class="plan-price">Starting at $12k</div>
         <div class="plan-period">billed annually · ~$1,000/mo</div>
@@ -1027,7 +1067,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
         <a href="#lead" class="plan-btn">REQUEST AUDIT →</a>
       </div>
       <div class="plan feat rev">
-        <div class="plan-tag">// Most Popular · Multi-Site</div>
+        <div class="plan-tag">// Scaled Rollout · Multi-Plant Edition</div>
         <div class="plan-name">Enterprise</div>
         <div class="plan-price">Starting at $24k</div>
         <div class="plan-period">billed annually · ~$2,000/mo</div>
@@ -1041,8 +1081,8 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
         <a href="#lead" class="plan-btn">REQUEST AUDIT →</a>
       </div>
       <div class="plan rev">
-        <div class="plan-tag">// Plant-Wide / Group Rollout</div>
-        <div class="plan-name">Custom License</div>
+        <div class="plan-tag">// Global Scale · Contact Sales</div>
+        <div class="plan-name">Global Enterprise</div>
         <div class="plan-price">Custom</div>
         <div class="plan-period">plant-wide or multi-region scope · tailored offer</div>
         <div class="plan-fts">
@@ -1052,7 +1092,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
           <div class="pf"><span>✓</span>Custom OEM reporting</div>
           <div class="pf"><span>✓</span>White-glove implementation</div>
         </div>
-        <a href="#lead" class="plan-btn">REQUEST CUSTOM PROPOSAL →</a>
+        <a href="#lead" class="plan-btn">CONTACT SALES →</a>
       </div>
     </div>
     <div class="price-note">
@@ -1082,6 +1122,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <a href="#">Legal Notice</a>
     <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank">Open Dashboard ↗</a>
   </div>
+  <div class="fops">CONTROL AGENT GLOBAL OPERATIONS</div>
   <div class="fhotline">24/7 PRIORITY SUPPORT FOR ENTERPRISE CLIENTS</div>
   <div class="fcopy">Hosted US-West · SOC2 · IATF 16949 · Made for Automotive Excellence</div>
 </footer>
