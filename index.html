@@ -531,8 +531,8 @@ input::placeholder{color:#64748B}
 /* ── PRICING ── */
 .price-bg{background:var(--navy);padding:88px 48px}
 .price-bg::before{content:'';display:block;height:1px;background:linear-gradient(90deg,transparent,var(--yellow),transparent);margin-bottom:88px}
-.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-bottom:36px}
-.plan{background:var(--navy-mid);padding:36px 28px;display:flex;flex-direction:column}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:36px}
+.plan{background:var(--navy-mid);padding:36px 28px;display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--r)}
 .plan.feat{background:var(--navy-card);border-top:3px solid var(--yellow)}
 .plan-tag{font-family:var(--mono);font-size:9px;color:var(--yellow);letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
 .plan-name{font-family:var(--display);font-size:28px;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:5px}
@@ -1087,57 +1087,52 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="sec-tag">Investment</div>
     <div class="sec-h rev">Choose Your <em>Protection Level.</em></div>
     <p class="sec-s">We don't sell licenses. We protect production lines. No upfront cost until ROI is proven for your plant.</p>
-    <div class="plan-grid">
-        <div class="plan">
-            <div class="plan-tag">Production Pilot</div>
-            <div class="plan-name">Single Plant Foundation</div>
+<div class="plan-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
 
-            <div style="margin-bottom: 20px;">
-                <div class="plan-price">$1,000<span style="font-size: 16px; font-weight: normal; color: var(--text-dim);"> /mo</span></div>
-                <div style="font-family: var(--mono); color: var(--blue); font-size: 14px; margin-top: 5px;">
-                    $12,000 / Year
-                </div>
-            </div>
-
-            <div style="font-family: var(--mono); font-size: 11px; color: var(--yellow); margin-bottom: 20px; padding: 10px; border: 1px solid var(--border); background: rgba(255,184,0,0.05);">
-                + $5,000 One-Time Setup Fee
-            </div>
-
-            <div class="plan-fts">
-                <div class="pf"><span>✔</span> Full Control Agent Core</div>
-                <div class="pf"><span>✔</span> ERP Read-Only Connectivity</div>
-                <div class="pf"><span>✔</span> 8D & OEE Visualization</div>
-            </div>
-            <a href="#lead-sec" class="plan-btn">Schedule Rollout</a>
+    <div class="plan">
+        <div class="plan-tag">OEE Optimization</div>
+        <div class="plan-name">Flow Agent</div>
+        <div class="plan-price">$1,000<span style="font-size: 14px;">/mo</span></div>
+        <div style="font-family: var(--mono); font-size: 11px; color: var(--blue); margin-bottom: 20px;">$12,000 / Year</div>
+        <div class="plan-fts">
+            <div class="pf"><span>✔</span> OEE Real-Time Monitoring</div>
+            <div class="pf"><span>✔</span> Bottleneck AI Analysis</div>
+            <div class="pf"><span>✔</span> Cycle Time Optimization</div>
         </div>
-
-        <div class="plan" style="border-color: var(--blue);">
-            <div class="plan-tag" style="background: var(--blue); color: white;">Enterprise Standard</div>
-            <div class="plan-name">Professional Operations</div>
-
-            <div style="margin-bottom: 20px;">
-                <div class="plan-price">$2,000<span style="font-size: 16px; font-weight: normal; color: var(--text-dim);"> /mo</span></div>
-                <div style="font-family: var(--mono); color: var(--blue); font-size: 14px; margin-top: 5px;">
-                    $24,000 / Year
-                </div>
-            </div>
-
-            <div style="font-family: var(--mono); font-size: 11px; color: var(--yellow); margin-bottom: 20px; padding: 10px; border: 1px solid var(--border); background: rgba(255,184,0,0.05);">
-                + $5,000 One-Time Setup Fee
-            </div>
-
-            <div class="plan-fts">
-                <div class="pf"><span>✔</span> Everything in Single Plant</div>
-                <div class="pf"><span>✔</span> Multi-Site Sync (US/MEX)</div>
-                <div class="pf"><span>✔</span> Advanced Audit Support</div>
-            </div>
-            <a href="#lead-sec" class="plan-btn" style="background: var(--blue); border-color: var(--blue);">Contact Sales</a>
-        </div>
+        <a href="#lead-sec" class="plan-btn">Deploy Flow</a>
     </div>
 
-    <div style="text-align: center; margin-top: 40px; font-family: var(--mono); font-size: 12px; color: var(--text-dim);">
-        <p>All prices in USD. The $5,000 integration fee covers initial ERP bridging and agent calibration. <strong>No hidden costs.</strong></p>
+    <div class="plan">
+        <div class="plan-tag">Quality & Logistics</div>
+        <div class="plan-name">Supply Agent</div>
+        <div class="plan-price">$1,000<span style="font-size: 14px;">/mo</span></div>
+        <div style="font-family: var(--mono); font-size: 11px; color: var(--blue); margin-bottom: 20px;">$12,000 / Year</div>
+        <div class="plan-fts">
+            <div class="pf"><span>✔</span> Automated 8D Reporting</div>
+            <div class="pf"><span>✔</span> ERP Supply Chain Sync</div>
+            <div class="pf"><span>✔</span> Material Flow Prediction</div>
+        </div>
+        <a href="#lead-sec" class="plan-btn">Deploy Supply</a>
     </div>
+
+    <div class="plan" style="border: 2px solid var(--yellow); transform: scale(1.05); background: var(--navy-card);">
+        <div class="plan-tag" style="background: var(--yellow); color: black;">Full Ecosystem</div>
+        <div class="plan-name">Full Control Bundle</div>
+        <div class="plan-price">$2,500<span style="font-size: 14px;">/mo</span></div>
+        <div style="font-family: var(--mono); font-size: 11px; color: var(--yellow); margin-bottom: 20px;">$30,000 / Year</div>
+        <div class="plan-fts">
+            <div class="pf"><span>✔</span> Mobile Control Board</div>
+            <div class="pf"><span>✔</span> All Flow & Supply Agents</div>
+            <div class="pf"><span>✔</span> High-Priority Push Alerts</div>
+            <div class="pf"><span>✔</span> Strategic Multi-Site Sync</div>
+        </div>
+        <a href="#lead-sec" class="plan-btn">Deploy Full Control</a>
+    </div>
+</div>
+
+<div style="margin-top: 30px; background: rgba(240, 136, 62, 0.1); border: 1px solid var(--yellow); padding: 15px; text-align: center; border-radius: 8px;">
+    <span style="font-family: var(--display); font-weight: bold;">+ $5,000 ONE-TIME SETUP FEE</span>
+</div>
   </div>
 </section>
 
