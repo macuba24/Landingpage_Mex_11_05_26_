@@ -11,6 +11,7 @@
    ================================================================ */
 :root {
   --navy:       #0D1B2E;
+  --navy-dark:  #0A1422;
   --navy-mid:   #0F1F35;
   --navy-card:  #162540;
   --navy-light: #1C2E48;
@@ -890,7 +891,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
   <div class="inner">
     <div class="sec-tag">The Solution</div>
     <div class="sec-h rev">One Cockpit. <em>Three Agents.</em></div>
-    <p class="sec-s">Supply. Flow. Quality. Unified into one operational command center.</p>
+    <p class="sec-s">Supply. Flow. Quality. Unified into one operational command center. Our agents never act alone: they provide high-quality drafts and analysis, while your engineers remain the final decision-makers (human-in-the-loop).</p>
     <div class="agents-grid">
       <div class="agent rev">
         <div class="agent-idx">01</div>
@@ -1050,6 +1051,36 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
   </div>
 </section>
 
+<section class="sec" style="background: var(--navy-dark); border-top: 1px solid var(--border);">
+    <div class="inner">
+        <div class="sec-tag">Rapid Integration</div>
+        <h2 class="sec-h">From Zero to <em>Audit-Ready</em> in 14 Days</h2>
+        <p class="sec-s">We don't do "IT-Marathons". Our deployment process is engineered to be non-invasive and high-speed, requiring minimal resources from your local IT team.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 50px;">
+
+            <div style="background: var(--sidebar); padding: 30px; border: 1px solid var(--border); border-radius: 8px;">
+                <div style="color: var(--blue); font-family: var(--mono); font-size: 12px; margin-bottom: 10px;">DAYS 1-3</div>
+                <h3 style="font-family: var(--display); color: var(--text); font-size: 18px; margin-bottom: 15px;">Secure Bridging</h3>
+                <p style="font-size: 14px; color: var(--text-sec);">Establishment of the read-only SQL/MQTT tunnel. No changes to your ERP core. 100% IT-Security compliant.</p>
+            </div>
+
+            <div style="background: var(--sidebar); padding: 30px; border: 1px solid var(--border); border-radius: 8px; border-top: 3px solid var(--blue);">
+                <div style="color: var(--blue); font-family: var(--mono); font-size: 12px; margin-bottom: 10px;">DAYS 4-10</div>
+                <h3 style="font-family: var(--display); color: var(--text); font-size: 18px; margin-bottom: 15px;">Agent Training</h3>
+                <p style="font-size: 14px; color: var(--text-sec);">Our agents ingest your historical OEE and 8D data to learn your specific plant patterns and bottleneck logic.</p>
+            </div>
+
+            <div style="background: var(--sidebar); padding: 30px; border: 1px solid var(--border); border-radius: 8px;">
+                <div style="color: var(--green); font-family: var(--mono); font-size: 12px; margin-bottom: 10px;">DAY 14</div>
+                <h3 style="font-family: var(--display); color: var(--text); font-size: 18px; margin-bottom: 15px;">Full Go-Live</h3>
+                <p style="font-size: 14px; color: var(--text-sec);">Real-time OEE dashboards are live and the first automated 8D drafts are ready for engineering approval.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 <!-- PRICING -->
 <section class="price-bg">
   <div class="inner">
@@ -1057,59 +1088,55 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="sec-h rev">Choose Your <em>Protection Level.</em></div>
     <p class="sec-s">We don't sell licenses. We protect production lines. No upfront cost until ROI is proven for your plant.</p>
     <div class="plan-grid">
-      <div class="plan">
-        <div class="plan-tag">Entry Level</div>
-        <div class="plan-name">Single Plant Foundation</div>
-        <div class="plan-price">$1,000</div>
-        <div class="plan-period">per month, billed annually</div>
+        <div class="plan">
+            <div class="plan-tag">Production Pilot</div>
+            <div class="plan-name">Single Plant Foundation</div>
 
-        <div style="font-family: var(--mono); font-size: 11px; color: var(--yellow); margin-bottom: 20px; padding: 8px; border: 1px dashed var(--border-yel);">
-            + $5,000 One-Time Setup & Integration
+            <div style="margin-bottom: 20px;">
+                <div class="plan-price">$1,000<span style="font-size: 16px; font-weight: normal; color: var(--text-dim);"> /mo</span></div>
+                <div style="font-family: var(--mono); color: var(--blue); font-size: 14px; margin-top: 5px;">
+                    $12,000 / Year
+                </div>
+            </div>
+
+            <div style="font-family: var(--mono); font-size: 11px; color: var(--yellow); margin-bottom: 20px; padding: 10px; border: 1px solid var(--border); background: rgba(255,184,0,0.05);">
+                + $5,000 One-Time Setup Fee
+            </div>
+
+            <div class="plan-fts">
+                <div class="pf"><span>✔</span> Full Control Agent Core</div>
+                <div class="pf"><span>✔</span> ERP Read-Only Connectivity</div>
+                <div class="pf"><span>✔</span> 8D & OEE Visualization</div>
+            </div>
+            <a href="#lead-sec" class="plan-btn">Schedule Rollout</a>
         </div>
 
-        <div class="plan-fts">
-          <div class="pf"><span>✔</span> Full Agent Core Access</div>
-          <div class="pf"><span>✔</span> SAP / ERP Read-Only Bridge</div>
-          <div class="pf"><span>✔</span> Audit-Ready 8D Reporting</div>
+        <div class="plan" style="border-color: var(--blue);">
+            <div class="plan-tag" style="background: var(--blue); color: white;">Enterprise Standard</div>
+            <div class="plan-name">Professional Operations</div>
+
+            <div style="margin-bottom: 20px;">
+                <div class="plan-price">$2,000<span style="font-size: 16px; font-weight: normal; color: var(--text-dim);"> /mo</span></div>
+                <div style="font-family: var(--mono); color: var(--blue); font-size: 14px; margin-top: 5px;">
+                    $24,000 / Year
+                </div>
+            </div>
+
+            <div style="font-family: var(--mono); font-size: 11px; color: var(--yellow); margin-bottom: 20px; padding: 10px; border: 1px solid var(--border); background: rgba(255,184,0,0.05);">
+                + $5,000 One-Time Setup Fee
+            </div>
+
+            <div class="plan-fts">
+                <div class="pf"><span>✔</span> Everything in Single Plant</div>
+                <div class="pf"><span>✔</span> Multi-Site Sync (US/MEX)</div>
+                <div class="pf"><span>✔</span> Advanced Audit Support</div>
+            </div>
+            <a href="#lead-sec" class="plan-btn" style="background: var(--blue); border-color: var(--blue);">Contact Sales</a>
         </div>
-        <a href="#lead-sec" class="plan-btn">Start Deployment</a>
-      </div>
-      <div class="plan feat rev">
-        <div class="plan-tag">// Professional Operations</div>
-        <div class="plan-name">Professional Operations</div>
-        <div class="plan-price">Starting at $24k</div>
-        <div class="plan-period">Full OEE & 8D Automation for Tier-1 Plants</div>
-        <div class="plan-fts">
-          <div class="pf"><span>✓</span>Multi-plant intelligence</div>
-          <div class="pf"><span>✓</span>Cross-border risk mapping</div>
-          <div class="pf"><span>✓</span>All three agents active</div>
-          <div class="pf"><span>✓</span>Financial counter in USD (live)</div>
-          <div class="pf"><span>✓</span>Dedicated onboarding support</div>
-        </div>
-        <a href="#lead" class="plan-btn">REQUEST AUDIT →</a>
-      </div>
-      <div class="plan rev">
-        <div class="plan-tag">// Enterprise Transformation</div>
-        <div class="plan-name">Enterprise Transformation</div>
-        <div class="plan-price">Custom</div>
-        <div class="plan-period">Global Rollout · Contact Sales</div>
-        <div class="plan-fts">
-          <div class="pf"><span>✓</span>Global Rollout</div>
-          <div class="pf"><span>✓</span>24/7 Priority Support</div>
-          <div class="pf"><span>✓</span>On-Site Audit Assistance</div>
-        </div>
-        <a href="#lead" class="plan-btn">CONTACT SALES →</a>
-      </div>
     </div>
-    <div class="price-note" style="margin-top: 30px; border-color: var(--blue-dim); background: rgba(59,130,246,0.05);">
-      <div style="display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--text);">
-        <span style="color: var(--blue); font-size: 20px;">ℹ</span>
-        <p><strong>Transparent Pricing Guarantee:</strong> Apart from the one-time $5k integration fee and your monthly subscription, there are <u>no additional costs</u>. No per-user fees, no maintenance surcharges, no hidden API costs.</p>
-      </div>
-    </div>
-    <div class="price-note">
-      <strong>Our commitment starts with a free technical audit of your SAP lag and OEE leakage.</strong><br>
-      No upfront software costs until we've proven the ROI for your plant. Currently accepting 3 additional Tier-1 plants into our Strategic Impact Program.
+
+    <div style="text-align: center; margin-top: 40px; font-family: var(--mono); font-size: 12px; color: var(--text-dim);">
+        <p>All prices in USD. The $5,000 integration fee covers initial ERP bridging and agent calibration. <strong>No hidden costs.</strong></p>
     </div>
   </div>
 </section>
