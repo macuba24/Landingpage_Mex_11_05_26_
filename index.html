@@ -492,13 +492,13 @@ h1 .w4{
 .fg{margin-bottom:14px}
 label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--text-sec);text-transform:uppercase;display:block;margin-bottom:5px}
 input,select{
-  width:100%;background:var(--navy);border:1px solid var(--border-med);
-  color:var(--text);font-family:var(--mono);font-size:13px;
+  width:100%;background:#F8FAFC;border:1px solid #CBD5E1;
+  color:#0F172A;font-family:var(--mono);font-size:13px;
   padding:12px 13px;border-radius:6px;outline:none;
   transition:border-color .2s;appearance:none;
 }
 input:focus,select:focus{border-color:var(--yellow)}
-input::placeholder{color:var(--text-dim)}
+input::placeholder{color:#64748B}
 .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .roi-box{background:var(--navy);border:1px solid var(--border-yel);border-radius:6px;padding:14px;margin-bottom:14px;display:none}
 .roi-box-lbl{font-family:var(--mono);font-size:9px;color:var(--text-dim);letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
@@ -988,46 +988,8 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
         <div class="fc-title">Book Your Demo</div>
         <div class="fc-sub">// Free · No commitment · Response within 48h</div>
         <form id="leadForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <div class="fg-row">
-            <div class="fg"><label>First Name *</label><input type="text" name="firstName" placeholder="Max" required></div>
-            <div class="fg"><label>Last Name *</label><input type="text" name="lastName" placeholder="Mustermann" required></div>
-          </div>
-          <div class="fg"><label>Company Email *</label><input type="email" name="email" placeholder="m.mustermann@company.com" required></div>
-          <div class="fg"><label>Company / Plant *</label><input type="text" name="company" placeholder="e.g. Bosch Werk Homburg" required></div>
-          <div class="fg-row">
-            <div class="fg">
-              <label>Your Role *</label>
-              <select name="role" required>
-                <option value="" disabled selected>Select role</option>
-                <option>Plant Manager</option>
-                <option>Quality Manager</option>
-                <option>Supply Chain Manager</option>
-                <option>Operations Director</option>
-                <option>CEO / Managing Director</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="fg">
-              <label>Plant Location *</label>
-              <select name="location" required>
-                <option value="" disabled selected>Region</option>
-                <option>Germany</option>
-                <option>Mexico</option>
-                <option>USA</option>
-                <option>Other EU</option>
-                <option>Other</option>
-              </select>
-            </div>
-          </div>
-          <div class="fg">
-            <label>Hourly Cost if Line Stops (USD)</label>
-            <input type="number" name="hourlyCost" placeholder="e.g. 50000" id="riskIn" oninput="calcROI()">
-          </div>
-          <div class="roi-box" id="roiBox">
-            <div class="roi-box-lbl">Conservative Quarterly Risk Exposure</div>
-            <div class="roi-box-val" id="roiVal">$0</div>
-            <div class="roi-box-note">Based on 1 stop × 4.5h avg downtime — conservative estimate</div>
-          </div>
+          <div class="fg"><label>Name *</label><input type="text" name="name" placeholder="John Smith" required></div>
+          <div class="fg"><label>Company Email *</label><input type="email" name="email" placeholder="john.smith@company.com" required></div>
           <input type="hidden" name="_subject" value="New Control Agent Lead – Strategic Impact Audit">
           <button type="submit" class="submit-btn">Book My Demo <span>→</span></button>
           <div class="form-disc">NO SPAM · NO PRE-SALES · YOUR BUSINESS CASE FIRST</div>
