@@ -10,28 +10,31 @@
    DESIGN SYSTEM — pixel-perfect match to Control Agent dashboard
    ================================================================ */
 :root {
-  --navy:       #0D1B2E;
-  --navy-dark:  #0A1422;
-  --navy-mid:   #0F1F35;
-  --navy-card:  #162540;
-  --navy-light: #1C2E48;
-  --sidebar:    #0B1828;
-  --sidebar-act:#1A3354;
+  /* Aligned to live Master Console (deep slate / panel) */
+  --navy:       #0b0f19;
+  --navy-dark:  #06080e;
+  --navy-mid:   #0d1117;
+  --navy-card:  #161b2c;
+  --navy-light: #1e2438;
+  --sidebar:    #0b0f19;
+  --sidebar-act:#151c2e;
 
   --yellow:     #F5C518;
   --yellow-dim: rgba(245,197,24,0.18);
   --green:      #22C55E;
   --green-dim:  rgba(34,197,94,0.15);
   --green-dark: #1A6B3A;
-  --red:        #C0392B;
-  --red-muted:  #7B2D26;
+  /* Cool, saturated alert red — avoids brick/magenta on dark blue */
+  --red:        #DC2626;
+  --red-muted:  #7F1D1D;
+  --red-rgb:    220, 38, 38;
   --blue:       #3B82F6;
   --blue-dim:   rgba(59,130,246,0.15);
   --orange:     #E67E22;
 
-  --text:       #EDF4FF;
-  --text-sec:   #7A9BBF;
-  --text-dim:   #304D6B;
+  --text:       #ffffff;
+  --text-sec:   #a0aec0;
+  --text-dim:   #4a5568;
   --border:     rgba(255,255,255,0.07);
   --border-med: rgba(255,255,255,0.12);
   --border-yel: rgba(245,197,24,0.25);
@@ -102,11 +105,12 @@ nav{
 
 .live-bar{
   display:inline-flex;align-items:center;gap:10px;
-  background:var(--navy-card);border:1px solid rgba(192,57,43,.4);
+  background:var(--navy-card);border:1px solid rgba(var(--red-rgb),.45);
   padding:8px 16px;border-radius:6px;margin-bottom:32px;width:fit-content;
 }
-.live-dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:pulse-r 1.5s ease-in-out infinite}
-@keyframes pulse-r{0%,100%{box-shadow:0 0 0 0 rgba(192,57,43,.5)}50%{box-shadow:0 0 0 8px rgba(192,57,43,0)}}
+.live-dot{width:7px;height:7px;background:var(--red);border-radius:50%;flex-shrink:0;animation:pulse-r 1.6s ease-in-out infinite}
+/* Tight glow only — large red halos on navy read pink/mauve on many displays */
+@keyframes pulse-r{0%,100%{box-shadow:0 0 0 0 rgba(var(--red-rgb),.35)}50%{box-shadow:0 0 0 4px rgba(var(--red-rgb),0)}}
 .live-lbl{font-family:var(--mono);font-size:11px;color:var(--text-sec)}
 .live-num{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--red)}
 
@@ -185,7 +189,7 @@ h1 .w4{
 
 /* ─── REAL DASHBOARD MOCK ─── */
 .dash-replica{
-  width:100%;max-width:660px;
+  width:100%;max-width:780px;
   background:var(--navy-mid);
   border:1px solid var(--border-med);
   border-radius:var(--r);
@@ -199,6 +203,101 @@ h1 .w4{
   display:block;
   border-radius:var(--r);
 }
+
+/* ═══ Master Console — HTML replica (matches live app) ═══ */
+.mc-dash{
+  --mc-line:rgba(255,255,255,.08);
+  --mc-muted:#a0aec0;
+  font-family:var(--body);
+  font-size:12px;
+  color:var(--text);
+  background:#0b0f19;
+  line-height:1.45;
+  text-align:left;
+}
+.mc-dash--hero{font-size:11px}
+.mc-dash--hero .mc-risk-val{font-size:24px}
+.mc-dash--hero .mc-body{min-height:300px}
+.mc-dash--section{font-size:13px}
+.mc-dash--section .mc-risk-val{font-size:34px}
+.mc-dash--section .mc-body{min-height:400px;grid-template-columns:172px 1fr 132px}
+
+.mc-top{
+  height:48px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 14px;border-bottom:1px solid var(--mc-line);
+  background:#0b0f19;
+}
+.mc-top-brand{display:flex;align-items:center;gap:8px}
+.mc-top-stripe{width:3px;height:22px;background:var(--blue);border-radius:2px;flex-shrink:0}
+.mc-top-t{font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.02em;line-height:1.15}
+.mc-top-s{font-family:var(--mono);font-size:7px;color:var(--mc-muted);letter-spacing:.12em;text-transform:uppercase}
+.mc-top-lang{font-family:var(--mono);font-size:9px;color:var(--mc-muted);border:1px solid var(--mc-line);padding:4px 10px;border-radius:6px;cursor:default}
+
+.mc-body{display:grid;grid-template-columns:150px 1fr 116px;min-height:340px}
+.mc-nav{background:#0b0f19;border-right:1px solid var(--mc-line);padding:8px 0}
+.mc-nav-item{
+  padding:8px 11px;font-family:var(--mono);font-size:9px;color:var(--mc-muted);
+  letter-spacing:.03em;display:flex;align-items:center;gap:6px;cursor:default;transition:background .15s;
+}
+.mc-nav-item.act{color:#fff;background:rgba(59,130,246,.1);border-right:2px solid var(--blue)}
+.mc-nav-dot{width:4px;height:4px;border-radius:50%;background:#4a5568;flex-shrink:0}
+.mc-nav-item.act .mc-nav-dot{background:var(--blue)}
+
+.mc-main{background:#0b0f19;padding:10px 12px;overflow:hidden;border-right:1px solid var(--mc-line)}
+.mc-toolbar{margin-bottom:8px;display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:10px}
+.mc-risk-lbl{font-family:var(--mono);font-size:8px;color:var(--mc-muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
+.mc-risk-val{font-family:var(--display);font-size:28px;font-weight:700;letter-spacing:.06em;line-height:1;color:#fff}
+.mc-toolbar-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;min-width:0;flex:1}
+.mc-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:flex-end}
+.mc-cb{display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:9px;color:var(--mc-muted);cursor:default}
+.mc-cb input{width:12px;height:12px;accent-color:var(--green)}
+.mc-pill{
+  font-family:var(--mono);font-size:8px;font-weight:600;letter-spacing:.05em;
+  padding:3px 10px;border-radius:999px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.4);color:#4ade80;white-space:nowrap;
+}
+.mc-btn-silence{
+  font-family:var(--mono);font-size:9px;color:#e2e8f0;padding:5px 11px;border-radius:6px;border:1px solid var(--mc-line);background:transparent;cursor:default;white-space:nowrap;
+}
+.mc-fin-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;align-items:flex-end}
+.mc-fin-box{border:1px solid var(--mc-line);border-radius:8px;padding:8px 10px;background:#161b2c;max-width:260px}
+.mc-fin-title{font-family:var(--mono);font-size:8px;color:var(--mc-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.mc-fin-val{font-family:var(--mono);font-size:11px;color:#fff;display:flex;align-items:center;gap:8px;justify-content:space-between}
+.mc-fin-locked{font-size:8px;padding:2px 7px;border:1px solid var(--mc-line);border-radius:4px;color:var(--mc-muted)}
+.mc-fin-note{font-size:7px;color:#718096;margin-top:6px;line-height:1.35;text-align:right}
+.mc-dt{display:flex;flex-direction:column;gap:4px;align-items:flex-end}
+.mc-dt label{font-size:8px;color:var(--mc-muted);font-family:var(--mono);letter-spacing:.05em;text-transform:uppercase;margin:0}
+.mc-dt input{width:118px;padding:6px 8px;border-radius:6px;border:1px solid #2d3748;background:#1a202c;color:#cbd5e1;font-family:var(--mono);font-size:10px}
+
+.mc-board-h{margin-top:4px;margin-bottom:2px}
+.mc-board-t{font-family:var(--display);font-size:14px;font-weight:700}
+.mc-board-s{font-family:var(--mono);font-size:7px;color:var(--mc-muted);letter-spacing:.09em;margin-bottom:8px}
+.mc-d-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.mc-card{background:#161b2c;border:1px solid var(--mc-line);border-radius:8px;padding:8px}
+.mc-card-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.mc-d-num{font-family:var(--display);font-size:11px;font-weight:700;color:var(--mc-muted)}
+.mc-badge{font-family:var(--mono);font-size:7px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px}
+.mc-badge.green{background:rgba(34,197,94,.18);color:#4ade80}
+.mc-badge.yellow{background:rgba(234,179,8,.14);color:#facc15}
+.mc-card-meta{display:grid;grid-template-columns:auto 1fr;gap:2px 6px;font-family:var(--mono);font-size:8px;color:var(--mc-muted);margin-bottom:4px}
+.mc-card-meta span{color:#cbd5e1}
+.mc-dl{font-family:var(--mono);font-size:8px;color:var(--mc-muted);padding:5px 0;margin-bottom:6px;border-top:1px solid var(--mc-line);border-bottom:1px solid var(--mc-line)}
+.mc-card-btns{display:flex;gap:5px;margin-bottom:6px}
+.mc-card-btns button{flex:1;font-family:var(--mono);font-size:7px;padding:6px 4px;border-radius:6px;border:1px solid rgba(59,130,246,.35);background:rgba(59,130,246,.08);color:#93c5fd;cursor:default}
+.mc-card-foot{font-family:var(--mono);font-size:7px;color:#718096;border:1px solid var(--mc-line);border-radius:6px;padding:6px;text-align:center}
+
+.mc-tl{background:#0b0f19;padding:10px 6px;display:flex;flex-direction:column;align-items:center}
+.mc-tl-t{font-family:var(--display);font-size:12px;font-weight:700;text-align:center;line-height:1.1}
+.mc-tl-s{font-family:var(--mono);font-size:7px;color:var(--mc-muted);text-align:center;margin:2px 0 10px;line-height:1.35}
+.mc-bulbs{display:flex;flex-direction:row;align-items:flex-end;justify-content:center;gap:10px}
+.mc-bulb-w{display:flex;flex-direction:column;align-items:center;gap:4px}
+.mc-bulb{width:34px;height:34px;border-radius:50%;flex-shrink:0}
+.mc-bulb.on.g{background:radial-gradient(circle at 35% 35%,#4ade80,#15803d);box-shadow:0 0 12px rgba(34,197,94,.45)}
+.mc-bulb.off.y{background:radial-gradient(circle at 35% 35%,#78350f,#422006);opacity:.42}
+.mc-bulb.off.r{background:radial-gradient(circle at 35% 35%,#450a0a,#1a0505);opacity:.38}
+.mc-bulb-lbl{font-family:var(--mono);font-size:7px;font-weight:700;letter-spacing:.07em}
+.mc-bulb-lbl.g{color:#4ade80}
+.mc-bulb-lbl.y{color:#854d0e}
+.mc-bulb-lbl.r{color:#7f1d1d}
 
 /* topbar */
 .dr-top{
@@ -274,17 +373,17 @@ h1 .w4{
 .dr-bulb{width:44px;height:44px;border-radius:50%;position:relative}
 .dr-bulb.green-on{background:radial-gradient(circle at 35% 35%,#4ADE80,#16A34A);box-shadow:0 0 18px rgba(34,197,94,.6),0 0 36px rgba(34,197,94,.2)}
 .dr-bulb.yellow-on{background:radial-gradient(circle at 35% 35%,#FCD34D,#D97706);box-shadow:0 0 18px rgba(245,197,24,.6),0 0 36px rgba(245,197,24,.2)}
-.dr-bulb.red-off{background:radial-gradient(circle at 35% 35%,#9B3535,#6B2020);box-shadow:none;opacity:.5}
+.dr-bulb.red-off{background:radial-gradient(circle at 35% 35%,#991B1B,#450A0A);box-shadow:none;opacity:.55}
 .dr-tl-lbl{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em}
 .tl-lbl-g{color:var(--green)}
 .tl-lbl-y{color:var(--yellow)}
-.tl-lbl-r{color:#9B3535}
+.tl-lbl-r{color:#B91C1C}
 .dr-overall{font-family:var(--mono);font-size:9px;color:var(--yellow);text-align:center;font-weight:600;line-height:1.4}
 
 /* dashboard CTA overlay */
 .dash-cta-overlay{
   position:absolute;bottom:0;left:0;right:0;
-  background:linear-gradient(transparent,rgba(13,27,46,.95) 40%);
+  background:linear-gradient(transparent,rgba(11,15,25,.95) 40%);
   padding:40px 28px 28px;
   display:flex;flex-direction:column;align-items:center;gap:12px;
 }
@@ -466,11 +565,11 @@ h1 .w4{
 .df-bulb{width:52px;height:52px;border-radius:50%}
 .df-bulb.g{background:radial-gradient(circle at 35% 35%,#4ADE80,#15803D);box-shadow:0 0 20px rgba(34,197,94,.55),0 0 40px rgba(34,197,94,.15)}
 .df-bulb.y{background:radial-gradient(circle at 35% 35%,#FCD34D,#B45309);box-shadow:0 0 20px rgba(245,197,24,.55),0 0 40px rgba(245,197,24,.15)}
-.df-bulb.r{background:radial-gradient(circle at 35% 35%,#9B3535,#5C1A1A);box-shadow:none;opacity:.45}
+.df-bulb.r{background:radial-gradient(circle at 35% 35%,#991B1B,#450A0A);box-shadow:none;opacity:.5}
 .df-bulb-lbl{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em}
 .df-bulb-lbl.g{color:var(--green)}
 .df-bulb-lbl.y{color:var(--yellow)}
-.df-bulb-lbl.r{color:#9B3535}
+.df-bulb-lbl.r{color:#B91C1C}
 .df-overall{font-family:var(--mono);font-size:9px;font-weight:600;color:var(--yellow);text-align:center;line-height:1.5}
 .dashsec-cta{display:flex;justify-content:center;margin-top:36px;gap:16px;flex-wrap:wrap}
 
@@ -595,6 +694,9 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
   .df-d-grid{grid-template-columns:1fr 1fr}
   .dr-body{grid-template-columns:1fr}
   .dr-nav,.dr-right{display:none}
+  .mc-body{grid-template-columns:1fr;min-height:0}
+  .mc-nav,.mc-tl{display:none}
+  .mc-main{border-right:none}
   .sec,.dashsec,.lead-sec,.price-bg,.final,.founder-bg{padding:60px 20px}
   .pain-bg,.agents-bg,.how-bg{padding:60px 20px}
   footer{flex-direction:column;text-align:center;padding:20px}
@@ -608,8 +710,8 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
   <div class="nav-brand">
     <img class="brand-logo" src="Gemini_Generated_Image_b08lejb08lejb08l.png" alt="Control Agent logo">
     <div class="nav-titles">
-      <span class="nav-main">Master Console</span>
-      <span class="nav-sub">Control Agent</span>
+      <span class="nav-main">Control Agent</span>
+      <span class="nav-sub">Master Console</span>
     </div>
   </div>
   <div class="nav-center">
@@ -663,9 +765,107 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
   <!-- RIGHT: Pixel-perfect dashboard replica -->
   <div class="hero-right">
     <div class="hero-right-glow"></div>
-    <div style="width:100%;max-width:660px;position:relative">
+    <div style="width:100%;max-width:780px;position:relative">
       <div class="dash-replica">
-        <img class="dash-shot" src="master-console.png" alt="Original Master Console dashboard screenshot">
+        <div class="mc-dash mc-dash--hero">
+          <header class="mc-top">
+            <div class="mc-top-brand">
+              <div class="mc-top-stripe" aria-hidden="true"></div>
+              <div>
+                <div class="mc-top-t">Control Agent</div>
+                <div class="mc-top-s">Master Console</div>
+              </div>
+            </div>
+            <div class="mc-top-lang">English ▾</div>
+          </header>
+          <div class="mc-body">
+            <nav class="mc-nav" aria-label="Demo navigation">
+              <div class="mc-nav-item act"><span class="mc-nav-dot"></span> Dashboard Overview</div>
+              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Active 8D-Reports</div>
+              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Supply Agent</div>
+              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Flow Agent</div>
+              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Quality Agent</div>
+            </nav>
+            <main class="mc-main">
+              <div class="mc-toolbar">
+                <div>
+                  <div class="mc-risk-lbl">Global Risk Level</div>
+                  <div class="mc-risk-val">MAJOR</div>
+                </div>
+                <div class="mc-toolbar-right">
+                  <div class="mc-row">
+                    <label class="mc-cb"><input type="checkbox" checked disabled> Enable Audit-Mode</label>
+                    <span class="mc-pill">IATF 10.2 COMPLIANT</span>
+                    <span class="mc-btn-silence">Silence Alerts</span>
+                  </div>
+                  <div class="mc-fin-row">
+                    <div class="mc-fin-box">
+                      <div class="mc-fin-title">Financial Counter</div>
+                      <div class="mc-fin-val"><span>--- USD</span><span class="mc-fin-locked">Locked</span></div>
+                      <div class="mc-fin-note">Role TEAM_MEMBER cannot unmask. Click Locked to unlock for demo mode.</div>
+                    </div>
+                    <div class="mc-dt">
+                      <label>Downtime Cost ($/hr)</label>
+                      <input type="text" value="50000" readonly tabindex="-1" aria-readonly="true">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mc-board-h">
+                <div class="mc-board-t">The Control Board</div>
+                <div class="mc-board-s">D1–D8 task cards with ownership details.</div>
+              </div>
+              <div class="mc-d-grid">
+                <div class="mc-card">
+                  <div class="mc-card-h"><span class="mc-d-num">D1</span><span class="mc-badge green">GREEN</span></div>
+                  <div class="mc-card-meta"><span>Assignee</span><span>Nina Bauer</span><span>Role</span><span>D_STEP_OWNER</span></div>
+                  <div class="mc-dl">12.5.2026, 00:35:48</div>
+                  <div class="mc-card-btns"><button type="button">Generate D1 report</button><button type="button">Download</button></div>
+                  <div class="mc-card-foot">No report generated yet.</div>
+                </div>
+                <div class="mc-card">
+                  <div class="mc-card-h"><span class="mc-d-num">D2</span><span class="mc-badge yellow">YELLOW</span></div>
+                  <div class="mc-card-meta"><span>Assignee</span><span>Tom Schmidt</span><span>Role</span><span>D_STEP_OWNER</span></div>
+                  <div class="mc-dl">12.5.2026, 01:12:03</div>
+                  <div class="mc-card-btns"><button type="button">Generate D2 report</button><button type="button">Download</button></div>
+                  <div class="mc-card-foot">No report generated yet.</div>
+                </div>
+                <div class="mc-card">
+                  <div class="mc-card-h"><span class="mc-d-num">D3</span><span class="mc-badge green">GREEN</span></div>
+                  <div class="mc-card-meta"><span>Assignee</span><span>Lisa Chen</span><span>Role</span><span>D_STEP_OWNER</span></div>
+                  <div class="mc-dl">12.5.2026, 02:08:51</div>
+                  <div class="mc-card-btns"><button type="button">Generate D3 report</button><button type="button">Download</button></div>
+                  <div class="mc-card-foot">No report generated yet.</div>
+                </div>
+                <div class="mc-card">
+                  <div class="mc-card-h"><span class="mc-d-num">D4</span><span class="mc-badge yellow">YELLOW</span></div>
+                  <div class="mc-card-meta"><span>Assignee</span><span>Marco Ruiz</span><span>Role</span><span>D_STEP_OWNER</span></div>
+                  <div class="mc-dl">12.5.2026, 03:44:19</div>
+                  <div class="mc-card-btns"><button type="button">Generate D4 report</button><button type="button">Download</button></div>
+                  <div class="mc-card-foot">No report generated yet.</div>
+                </div>
+              </div>
+            </main>
+            <aside class="mc-tl" aria-label="Traffic light status">
+              <div class="mc-tl-t">Traffic Light Status</div>
+              <div class="mc-tl-s">Immediate risk signal for operations.</div>
+              <div class="mc-bulbs">
+                <div class="mc-bulb-w">
+                  <div class="mc-bulb on g" aria-hidden="true"></div>
+                  <span class="mc-bulb-lbl g">GREEN</span>
+                </div>
+                <div class="mc-bulb-w">
+                  <div class="mc-bulb off y" aria-hidden="true"></div>
+                  <span class="mc-bulb-lbl y">YELLOW</span>
+                </div>
+                <div class="mc-bulb-w">
+                  <div class="mc-bulb off r" aria-hidden="true"></div>
+                  <span class="mc-bulb-lbl r">RED</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
       </div>
       <!-- CTA overlay bottom of dashboard -->
       <div class="dash-cta-overlay">
@@ -965,7 +1165,105 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="sec-h rev">This Is What You See <em>When You Log In.</em></div>
     <p class="sec-s">Not a spreadsheet. Not a SAP report from 4 hours ago. Real data. Real-time. One screen.</p>
     <div class="dash-full rev">
-      <img class="dash-shot" src="master-console.png" alt="Original Master Console dashboard screenshot">
+        <div class="mc-dash mc-dash--section">
+          <header class="mc-top">
+            <div class="mc-top-brand">
+              <div class="mc-top-stripe" aria-hidden="true"></div>
+              <div>
+                <div class="mc-top-t">Control Agent</div>
+                <div class="mc-top-s">Master Console</div>
+              </div>
+            </div>
+            <div class="mc-top-lang">English ▾</div>
+          </header>
+          <div class="mc-body">
+            <nav class="mc-nav" aria-label="Demo navigation">
+              <div class="mc-nav-item act"><span class="mc-nav-dot"></span> Dashboard Overview</div>
+              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Active 8D-Reports</div>
+              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Supply Agent</div>
+              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Flow Agent</div>
+              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Quality Agent</div>
+            </nav>
+            <main class="mc-main">
+              <div class="mc-toolbar">
+                <div>
+                  <div class="mc-risk-lbl">Global Risk Level</div>
+                  <div class="mc-risk-val">MAJOR</div>
+                </div>
+                <div class="mc-toolbar-right">
+                  <div class="mc-row">
+                    <label class="mc-cb"><input type="checkbox" checked disabled> Enable Audit-Mode</label>
+                    <span class="mc-pill">IATF 10.2 COMPLIANT</span>
+                    <span class="mc-btn-silence">Silence Alerts</span>
+                  </div>
+                  <div class="mc-fin-row">
+                    <div class="mc-fin-box">
+                      <div class="mc-fin-title">Financial Counter</div>
+                      <div class="mc-fin-val"><span>--- USD</span><span class="mc-fin-locked">Locked</span></div>
+                      <div class="mc-fin-note">Role TEAM_MEMBER cannot unmask. Click Locked to unlock for demo mode.</div>
+                    </div>
+                    <div class="mc-dt">
+                      <label>Downtime Cost ($/hr)</label>
+                      <input type="text" value="50000" readonly tabindex="-1" aria-readonly="true">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mc-board-h">
+                <div class="mc-board-t">The Control Board</div>
+                <div class="mc-board-s">D1–D8 task cards with ownership details.</div>
+              </div>
+              <div class="mc-d-grid">
+                <div class="mc-card">
+                  <div class="mc-card-h"><span class="mc-d-num">D1</span><span class="mc-badge green">GREEN</span></div>
+                  <div class="mc-card-meta"><span>Assignee</span><span>Nina Bauer</span><span>Role</span><span>D_STEP_OWNER</span></div>
+                  <div class="mc-dl">12.5.2026, 00:35:48</div>
+                  <div class="mc-card-btns"><button type="button">Generate D1 report</button><button type="button">Download</button></div>
+                  <div class="mc-card-foot">No report generated yet.</div>
+                </div>
+                <div class="mc-card">
+                  <div class="mc-card-h"><span class="mc-d-num">D2</span><span class="mc-badge yellow">YELLOW</span></div>
+                  <div class="mc-card-meta"><span>Assignee</span><span>Tom Schmidt</span><span>Role</span><span>D_STEP_OWNER</span></div>
+                  <div class="mc-dl">12.5.2026, 01:12:03</div>
+                  <div class="mc-card-btns"><button type="button">Generate D2 report</button><button type="button">Download</button></div>
+                  <div class="mc-card-foot">No report generated yet.</div>
+                </div>
+                <div class="mc-card">
+                  <div class="mc-card-h"><span class="mc-d-num">D3</span><span class="mc-badge green">GREEN</span></div>
+                  <div class="mc-card-meta"><span>Assignee</span><span>Lisa Chen</span><span>Role</span><span>D_STEP_OWNER</span></div>
+                  <div class="mc-dl">12.5.2026, 02:08:51</div>
+                  <div class="mc-card-btns"><button type="button">Generate D3 report</button><button type="button">Download</button></div>
+                  <div class="mc-card-foot">No report generated yet.</div>
+                </div>
+                <div class="mc-card">
+                  <div class="mc-card-h"><span class="mc-d-num">D4</span><span class="mc-badge yellow">YELLOW</span></div>
+                  <div class="mc-card-meta"><span>Assignee</span><span>Marco Ruiz</span><span>Role</span><span>D_STEP_OWNER</span></div>
+                  <div class="mc-dl">12.5.2026, 03:44:19</div>
+                  <div class="mc-card-btns"><button type="button">Generate D4 report</button><button type="button">Download</button></div>
+                  <div class="mc-card-foot">No report generated yet.</div>
+                </div>
+              </div>
+            </main>
+            <aside class="mc-tl" aria-label="Traffic light status">
+              <div class="mc-tl-t">Traffic Light Status</div>
+              <div class="mc-tl-s">Immediate risk signal for operations.</div>
+              <div class="mc-bulbs">
+                <div class="mc-bulb-w">
+                  <div class="mc-bulb on g" aria-hidden="true"></div>
+                  <span class="mc-bulb-lbl g">GREEN</span>
+                </div>
+                <div class="mc-bulb-w">
+                  <div class="mc-bulb off y" aria-hidden="true"></div>
+                  <span class="mc-bulb-lbl y">YELLOW</span>
+                </div>
+                <div class="mc-bulb-w">
+                  <div class="mc-bulb off r" aria-hidden="true"></div>
+                  <span class="mc-bulb-lbl r">RED</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
     </div>
     <!-- CTA after seeing dashboard — highest psychological moment -->
     <div class="dashsec-cta">
@@ -1132,7 +1430,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     </div>
 </div>
 
-<div style="margin-top: 30px; background: rgba(240, 136, 62, 0.1); border: 1px solid var(--yellow); padding: 15px; text-align: center; border-radius: 8px;">
+<div style="margin-top: 30px; background: rgba(245, 197, 24, 0.08); border: 1px solid var(--border-yel); padding: 15px; text-align: center; border-radius: 8px;">
     <span style="font-family: var(--display); font-weight: bold;">+ $5,000 ONE-TIME SETUP FEE</span>
 </div>
   </div>
