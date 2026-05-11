@@ -55,8 +55,8 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 /* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
-  height:58px;display:flex;align-items:center;justify-content:space-between;
-  padding:0 28px;
+  min-height:58px;display:flex;align-items:center;justify-content:space-between;
+  padding:8px 28px;
   background:var(--sidebar);
   border-bottom:1px solid var(--border-med);
 }
@@ -77,7 +77,13 @@ nav{
 .pill-green{background:var(--green-dim);border-color:var(--green);color:var(--green)}
 .pill-dot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:blink 1.8s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
-.nav-right{display:flex;align-items:center;gap:8px}
+.nav-right{display:flex;align-items:flex-end;gap:10px}
+.nav-see-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.nav-supademo-sub{
+  font-family:var(--mono);font-size:8px;font-weight:500;color:var(--text-dim);
+  text-decoration:none;letter-spacing:.04em;line-height:1.2;max-width:200px;text-align:right;
+}
+.nav-supademo-sub:hover{color:var(--yellow)}
 .nbtn{font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:0.06em;padding:8px 18px;border-radius:6px;text-decoration:none;cursor:pointer;border:none;transition:all .2s}
 .nbtn-ghost{background:transparent;border:1px solid var(--border-med);color:var(--text-sec)}
 .nbtn-ghost:hover{border-color:var(--yellow);color:var(--yellow)}
@@ -87,8 +93,10 @@ nav{
 /* ── HERO ── */
 .hero{
   min-height:100vh;
-  display:grid;grid-template-columns:1fr 1fr;
-  padding-top:58px;overflow:hidden;position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  align-items:stretch;
+  padding-top:72px;overflow:hidden;position:relative;
 }
 .hero-grid-bg{
   position:absolute;inset:0;
@@ -234,8 +242,15 @@ h1 .w4{
 /* ── HERO RIGHT: Real Dashboard Replica ── */
 .hero-right{
   position:relative;background:var(--sidebar);
-  display:flex;align-items:center;justify-content:center;
-  padding:40px 28px;overflow:hidden;
+  align-self:stretch;
+  display:flex;flex-direction:column;
+  min-height:calc(100dvh - 72px);
+  padding:clamp(16px,2.2vw,28px) clamp(12px,1.8vw,22px);
+  overflow:hidden;
+}
+.hero-dash-wrap{
+  position:relative;flex:1;width:100%;max-width:min(100%,1020px);margin:0 auto;
+  display:flex;flex-direction:column;min-height:0;
 }
 .hero-right-glow{
   position:absolute;top:-100px;right:-100px;
@@ -246,7 +261,8 @@ h1 .w4{
 
 /* ─── REAL DASHBOARD MOCK ─── */
 .dash-replica{
-  width:100%;max-width:780px;
+  flex:1;width:100%;max-width:none;min-height:0;
+  display:flex;flex-direction:column;
   background:var(--navy-mid);
   border:1px solid var(--border-med);
   border-radius:var(--r);
@@ -255,14 +271,18 @@ h1 .w4{
   animation:slideIn .9s ease .2s both;
 }
 @keyframes slideIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.dash-shot{
-  width:100%;
-  height:auto;
+.dash-replica .dash-shot{
+  flex:1;width:100%;min-height:280px;height:100%;
   display:block;
-  vertical-align:middle;
-  border-radius:var(--r);
-  object-fit:contain;
+  border-radius:0;
+  object-fit:cover;
+  object-position:top center;
   background:var(--navy-mid);
+}
+.dash-full .dash-shot{
+  flex:none;width:100%;height:auto;min-height:0;
+  display:block;border-radius:var(--r);
+  object-fit:contain;object-position:center;
 }
 
 /* ═══ Master Console — HTML replica (matches live app) ═══ */
@@ -682,7 +702,6 @@ input::placeholder{color:#64748B}
 .submit-btn:hover{background:#ddb214;transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,197,24,.3)}
 .form-disc{font-family:var(--mono);font-size:10px;color:var(--text-dim);text-align:center;margin-top:10px;letter-spacing:.06em}
 .form-support{font-family:var(--mono);font-size:10px;color:var(--yellow);text-align:center;letter-spacing:.08em;margin-top:8px}
-.form-contact{font-family:var(--mono);font-size:10px;color:var(--text-sec);text-align:center;letter-spacing:.06em;margin-top:8px}
 .form-success{display:none;flex-direction:column;align-items:center;text-align:center;padding:32px 16px;gap:14px}
 .form-success.show{display:flex}
 .fs-icon{font-size:44px}
@@ -744,7 +763,10 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
   .hero-left{padding:90px 24px 48px}
   .hero-story{grid-template-columns:1fr}
   .hero-story-img{width:100%;height:auto;aspect-ratio:4/5}
-  .hero-right{height:auto;padding:32px 20px;border-top:1px solid var(--border)}
+  .hero-right{min-height:auto;height:auto;padding:32px 20px;border-top:1px solid var(--border)}
+  .hero-dash-wrap{flex:none;min-height:auto;max-width:100%}
+  .dash-replica{flex:none;min-height:auto}
+  .dash-replica .dash-shot{flex:none;height:auto;min-height:0;object-fit:contain;object-position:center;border-radius:var(--r)}
   .proof-row{grid-template-columns:repeat(2,1fr)}
   .pain-grid,.agents-grid,.plan-grid,.success-grid{grid-template-columns:1fr}
   .trust-grid{grid-template-columns:1fr}
@@ -783,8 +805,11 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="pill pill-green">IATF 10.2 COMPLIANT</div>
   </div>
   <div class="nav-right">
-    <a href="#demo" class="nbtn nbtn-ghost" id="navSeeDemo">See Demo</a>
-    <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="nbtn nbtn-yellow">Open Dashboard →</a>
+    <div class="nav-see-wrap">
+      <a href="#demo" class="nbtn nbtn-ghost" id="navSeeDemo">See Demo</a>
+      <a href="https://app.supademo.com/demo/cmp14t5qy2i9g4qultoofmh57?utm_source=link" target="_blank" rel="noopener noreferrer" class="nav-supademo-sub">Supademo — open full tour ↗</a>
+    </div>
+    <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" rel="noopener noreferrer" class="nbtn nbtn-yellow">Open Dashboard →</a>
   </div>
 </nav>
 
@@ -833,7 +858,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
   <!-- RIGHT: Pixel-perfect dashboard replica -->
   <div class="hero-right">
     <div class="hero-right-glow"></div>
-    <div style="width:100%;max-width:780px;position:relative">
+    <div class="hero-dash-wrap">
       <div class="dash-replica">
         <img class="dash-shot" src="dashboard-master-console.png" width="1200" height="675" alt="Control Agent Master Console dashboard">
       </div>
@@ -1192,7 +1217,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
   <div class="lead-glow"></div>
   <div class="lead-inner">
     <div>
-      <div class="lead-pre">// Strategic Demo & Impact Audit</div>
+      <div class="lead-pre">// Contact · Strategic ROI & Impact Audit</div>
       <div class="lead-h">Stop Waiting For<br><em>The Next Call.</em></div>
       <p class="lead-p">Register now and receive your personalized ROI report — based on the actual KPIs of your plant. No generic pitch deck. No sales pressure. Just your number.</p>
       <div class="lead-bullets">
@@ -1215,22 +1240,21 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
            3. Replace YOUR_FORM_ID below with your real ID (e.g. xabc1234)
       -->
       <div id="formBody">
-        <div class="fc-title">Book Your Demo</div>
-        <div class="fc-sub">// Contact the founder · Direct reply from Rainer Hampicke · Within 48h</div>
+        <div class="fc-title">Contact</div>
+        <div class="fc-sub">// Direct line to the founder · Rainer Hampicke · Reply within 48h</div>
         <form id="leadForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="fg"><label>Name *</label><input type="text" name="name" placeholder="John Smith" required></div>
           <div class="fg"><label>Company Email *</label><input type="email" name="email" placeholder="john.smith@company.com" required></div>
-          <input type="hidden" name="_subject" value="New Control Agent Lead – Book Demo (founder contact)">
-          <button type="submit" class="submit-btn">Book Your Demo <span>→</span></button>
+          <input type="hidden" name="_subject" value="New Control Agent Lead – Contact (founder)">
+          <button type="submit" class="submit-btn">Contact <span>→</span></button>
           <div class="form-disc">NO SPAM · FOUNDER-LED · YOUR USE CASE FIRST</div>
-          <div class="form-contact">US/MEX Hotline: +1 (713) 555-0149 · +52 (222) 555-0149</div>
-          <div class="form-support">24/7 PRIORITY SUPPORT FOR ENTERPRISE CLIENTS</div>
+          <div class="form-support">24/7 SUPPORT</div>
         </form>
       </div>
       <div class="form-success" id="formSuccess">
         <div class="fs-icon">✅</div>
         <div class="fs-title">You're In.</div>
-        <div class="fs-sub">Your demo request has been received.<br>Rainer will review your plant profile personally and follow up within 48 hours.<br><br>Feel free to explore the live dashboard or the interactive preview in the meantime.</div>
+        <div class="fs-sub">Your message has been received.<br>Rainer will review your inquiry personally and follow up within 48 hours.<br><br>Feel free to explore the live dashboard or the interactive preview in the meantime.</div>
         <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="btn-y" style="margin-top:8px">Open Dashboard ↗</a>
       </div>
     </div>
@@ -1317,7 +1341,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" rel="noopener noreferrer">Open Dashboard ↗</a>
   </div>
   <div class="fops">CONTROL AGENT GLOBAL OPERATIONS</div>
-  <div class="fhotline">24/7 PRIORITY SUPPORT FOR ENTERPRISE CLIENTS</div>
+  <div class="fhotline">24/7 SUPPORT</div>
   <div class="fcopy">Hosted US-West · SOC2 · IATF 16949 · Made for Automotive Excellence</div>
 </footer>
 
