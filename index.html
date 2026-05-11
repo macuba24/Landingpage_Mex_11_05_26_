@@ -77,25 +77,17 @@ nav{
 .pill-green{background:var(--green-dim);border-color:var(--green);color:var(--green)}
 .pill-dot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:blink 1.8s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
-.nav-right{display:flex;align-items:flex-end;gap:10px}
-.nav-see-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
-.nav-supademo-sub{
-  font-family:var(--mono);font-size:8px;font-weight:500;color:var(--text-dim);
-  text-decoration:none;letter-spacing:.04em;line-height:1.2;max-width:200px;text-align:right;
-}
-.nav-supademo-sub:hover{color:var(--yellow)}
+.nav-right{display:flex;align-items:center;gap:10px}
 .nbtn{font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:0.06em;padding:8px 18px;border-radius:6px;text-decoration:none;cursor:pointer;border:none;transition:all .2s}
 .nbtn-ghost{background:transparent;border:1px solid var(--border-med);color:var(--text-sec)}
 .nbtn-ghost:hover{border-color:var(--yellow);color:var(--yellow)}
 .nbtn-yellow{background:var(--yellow);color:var(--navy)}
 .nbtn-yellow:hover{background:#ddb214;transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,197,24,.3)}
 
-/* ── HERO ── */
+/* ── HERO (full-width copy — no right-column image) ── */
 .hero{
-  min-height:100vh;
-  display:grid;
-  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
-  align-items:stretch;
+  min-height:auto;
+  display:block;
   padding-top:72px;overflow:hidden;position:relative;
 }
 .hero-grid-bg{
@@ -104,17 +96,23 @@ nav{
   background-size:44px 44px;
 }
 .hero-left{
-  position:relative;padding:72px 52px 64px 60px;
+  position:relative;
+  width:100%;max-width:min(1200px,100%);margin:0 auto;
+  padding:clamp(56px,8vh,88px) clamp(20px,4vw,48px) clamp(48px,6vh,80px);
   display:flex;flex-direction:column;justify-content:center;
-  border-right:1px solid var(--border);
+  align-items:center;
+  text-align:center;
 }
-.hero-tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--yellow);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.hero-tag{
+  font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--yellow);text-transform:uppercase;
+  display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:22px;
+}
 .hero-tag::before{content:'';width:24px;height:1px;background:var(--yellow)}
 
 .live-bar{
   display:inline-flex;align-items:center;gap:10px;
   background:var(--navy-card);border:1px solid rgba(var(--red-rgb),.45);
-  padding:8px 16px;border-radius:6px;margin-bottom:32px;width:fit-content;
+  padding:8px 16px;border-radius:6px;margin:0 auto 32px;width:fit-content;
 }
 .live-dot{width:7px;height:7px;background:var(--red);border-radius:50%;flex-shrink:0;animation:pulse-r 1.6s ease-in-out infinite}
 /* Tight glow only — large red halos on navy read pink/mauve on many displays */
@@ -127,7 +125,7 @@ h1{
   font-size:clamp(44px,5.5vw,80px);
   font-weight:700;line-height:.97;
   letter-spacing:.02em;text-transform:uppercase;
-  margin-bottom:22px;
+  margin-bottom:22px;text-align:center;width:100%;
 }
 h1 .w1{color:var(--text);display:block}
 h1 .w2{color:var(--yellow);display:block}
@@ -136,6 +134,7 @@ h1 .w4{
   font-family:var(--body);font-size:clamp(15px,1.8vw,20px);
   font-weight:400;color:var(--text-sec);
   display:block;text-transform:none;letter-spacing:0;margin-top:14px;line-height:1.65;
+  max-width:36rem;margin-left:auto;margin-right:auto;
 }
 
 .hero-sub{
@@ -145,24 +144,25 @@ h1 .w4{
 }
 .hero-sub strong{color:var(--text)}
 .hero-story{
-  display:grid;grid-template-columns:120px 1fr;gap:16px;
-  align-items:start;max-width:640px;margin-bottom:34px;
-  padding:14px;border:1px solid var(--border-med);border-radius:8px;
+  display:flex;flex-direction:column;align-items:center;gap:18px;
+  width:100%;max-width:52rem;margin:0 auto 34px;
+  padding:20px 22px;border:1px solid var(--border-med);border-radius:8px;
   background:rgba(22,37,64,.45);
 }
 .hero-story-img{
-  width:120px;height:150px;object-fit:cover;object-position:center 15%;
+  width:min(140px,36vw);height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 15%;
   border-radius:6px;border:1px solid var(--border-med);
 }
+.hero-story-t{width:100%;text-align:center}
 .hero-story-t p{font-size:14px;color:var(--text-sec);line-height:1.65;margin-bottom:10px}
 .hero-story-t p:last-child{margin-bottom:0}
 .hero-story-t strong{color:var(--text)}
 .hero-story-f{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--yellow);text-transform:uppercase}
 
-.hero-btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.hero-btns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}
 .hero-cta-line{
   font-size:13px;font-weight:500;color:var(--text-sec);line-height:1.55;
-  max-width:520px;margin:0 0 28px;padding-left:2px;
+  max-width:40rem;margin:0 auto 28px;padding:0 8px;text-align:center;
 }
 /* Executive hero CTAs — Tailwind-style yellow-500 + preview rail */
 .btn-hero-roi{
@@ -201,7 +201,7 @@ h1 .w4{
 .arr{transition:transform .2s}
 .btn-y:hover .arr,.btn-ghost:hover .arr{transform:translateX(4px)}
 
-.trust-row{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:28px}
+.trust-row{display:flex;flex-wrap:wrap;gap:18px;margin:0 auto 28px;justify-content:center;max-width:52rem}
 
 /* Inline Supademo — #demo anchor from hero CTA */
 .demo-embed-sec{
@@ -239,46 +239,6 @@ h1 .w4{
 .tr-item{font-family:var(--mono);font-size:11px;color:var(--text-dim);display:flex;align-items:center;gap:5px}
 .tr-item span{color:var(--green)}
 
-/* ── HERO RIGHT: Real Dashboard Replica ── */
-.hero-right{
-  position:relative;background:var(--sidebar);
-  align-self:stretch;
-  display:flex;flex-direction:column;
-  min-height:calc(100dvh - 72px);
-  padding:clamp(16px,2.2vw,28px) clamp(12px,1.8vw,22px);
-  overflow:hidden;
-}
-.hero-dash-wrap{
-  position:relative;flex:1;width:100%;max-width:min(100%,1020px);margin:0 auto;
-  display:flex;flex-direction:column;min-height:0;
-}
-.hero-right-glow{
-  position:absolute;top:-100px;right:-100px;
-  width:500px;height:500px;
-  background:radial-gradient(ellipse,rgba(59,130,246,.06) 0%,transparent 65%);
-  pointer-events:none;
-}
-
-/* ─── REAL DASHBOARD MOCK ─── */
-.dash-replica{
-  flex:1;width:100%;max-width:none;min-height:0;
-  display:flex;flex-direction:column;
-  background:var(--navy-mid);
-  border:1px solid var(--border-med);
-  border-radius:var(--r);
-  overflow:hidden;
-  box-shadow:0 32px 80px rgba(0,0,0,.6);
-  animation:slideIn .9s ease .2s both;
-}
-@keyframes slideIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.dash-replica .dash-shot{
-  flex:1;width:100%;min-height:280px;height:100%;
-  display:block;
-  border-radius:0;
-  object-fit:cover;
-  object-position:top center;
-  background:var(--navy-mid);
-}
 .dash-full .dash-shot{
   flex:none;width:100%;height:auto;min-height:0;
   display:block;border-radius:var(--r);
@@ -460,15 +420,6 @@ h1 .w4{
 .tl-lbl-y{color:var(--yellow)}
 .tl-lbl-r{color:#B91C1C}
 .dr-overall{font-family:var(--mono);font-size:9px;color:var(--yellow);text-align:center;font-weight:600;line-height:1.4}
-
-/* dashboard CTA overlay */
-.dash-cta-overlay{
-  position:absolute;bottom:0;left:0;right:0;
-  background:linear-gradient(transparent,rgba(11,15,25,.95) 40%);
-  padding:40px 28px 28px;
-  display:flex;flex-direction:column;align-items:center;gap:12px;
-}
-.dash-cta-label{font-family:var(--mono);font-size:11px;color:var(--text-sec);letter-spacing:.1em;text-align:center}
 
 /* ── STRIP ── */
 .strip{background:var(--navy-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 0;overflow:hidden}
@@ -760,14 +711,9 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
 @media(max-width:900px){
   nav{padding:0 16px}
   .nav-center{display:none}
-  .hero{grid-template-columns:1fr;min-height:auto}
-  .hero-left{padding:90px 24px 48px}
-  .hero-story{grid-template-columns:1fr}
-  .hero-story-img{width:100%;height:auto;aspect-ratio:4/5}
-  .hero-right{min-height:auto;height:auto;padding:32px 20px;border-top:1px solid var(--border)}
-  .hero-dash-wrap{flex:none;min-height:auto;max-width:100%}
-  .dash-replica{flex:none;min-height:auto}
-  .dash-replica .dash-shot{flex:none;height:auto;min-height:0;object-fit:contain;object-position:center;border-radius:var(--r)}
+  .hero{min-height:auto}
+  .hero-left{padding:88px 20px 48px}
+  .hero-story-img{width:100%;height:auto;aspect-ratio:4/5;max-width:200px}
   .proof-row{grid-template-columns:repeat(2,1fr)}
   .pain-grid,.agents-grid,.plan-grid,.success-grid{grid-template-columns:1fr}
   .trust-grid{grid-template-columns:1fr}
@@ -806,10 +752,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="pill pill-green">IATF 10.2 COMPLIANT</div>
   </div>
   <div class="nav-right">
-    <div class="nav-see-wrap">
-      <a href="#demo" class="nbtn nbtn-ghost" id="navSeeDemo">See Demo</a>
-      <a href="https://app.supademo.com/demo/cmp14t5qy2i9g4qultoofmh57?utm_source=link" target="_blank" rel="noopener noreferrer" class="nav-supademo-sub">Supademo — open full tour ↗</a>
-    </div>
+    <a href="#demo" class="nbtn nbtn-ghost" id="navSeeDemo">See Demo</a>
     <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" rel="noopener noreferrer" class="nbtn nbtn-yellow">Open Dashboard →</a>
   </div>
 </nav>
@@ -852,23 +795,6 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
         <p><strong>The Problem:</strong> Traditional ERP systems weren't built for the speed of a Tier-1 floor. They are archives, not active pilots. When a bottleneck happens, you don't need a report tomorrow; you need a Control Agent today.</p>
         <p><strong>The Standard for Tier-1 Plants:</strong> Control Agent closes the latency gap between ERP data and shop floor reality. It gives operations teams one command layer to detect risk early, act faster, and protect throughput before losses escalate - deployed and supported by cross-functional US/MEX teams.</p>
         <p class="hero-story-f">Real-Time. Traceable. Tier-1 Ready.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- RIGHT: Pixel-perfect dashboard replica -->
-  <div class="hero-right">
-    <div class="hero-right-glow"></div>
-    <div class="hero-dash-wrap">
-      <div class="dash-replica">
-        <img class="dash-shot" src="dashboard-master-console.png" width="1200" height="675" alt="Control Agent Master Console dashboard">
-      </div>
-      <!-- CTA overlay bottom of dashboard -->
-      <div class="dash-cta-overlay">
-        <div class="dash-cta-label">↑ This is your real-time command center. See it live:</div>
-        <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="btn-y" style="font-size:16px;padding:12px 26px;">
-          Open Live Dashboard <span class="arr">↗</span>
-        </a>
       </div>
     </div>
   </div>
