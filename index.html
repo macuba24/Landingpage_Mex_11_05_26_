@@ -159,8 +159,18 @@ h1 .w4{
 .hero-cta-line{
   font-size:13px;font-weight:400;line-height:1.55;
   color:#94a3b8;
-  max-width:40rem;margin:0 auto 28px;padding:0 8px;text-align:center;
+  max-width:40rem;margin:0 auto 16px;padding:0 8px;text-align:center;
 }
+.hero-it-promise{
+  font-family:var(--display);font-weight:800;font-size:clamp(15px,2.1vw,21px);
+  letter-spacing:.05em;text-transform:uppercase;color:var(--yellow);
+  text-align:center;max-width:46rem;margin:0 auto 10px;padding:0 14px;line-height:1.35;
+}
+.hero-it-sub{
+  font-size:14px;color:var(--text-sec);line-height:1.68;text-align:center;
+  max-width:42rem;margin:0 auto 24px;padding:0 16px;
+}
+.hero-it-sub strong{color:var(--text);font-weight:600}
 /* Executive hero CTAs — primary: Tailwind yellow-500; secondary: Supademo proof (border white/20) */
 .btn-hero-roi{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -426,7 +436,23 @@ h1 .w4{
 .proof-cell{background:var(--navy-mid);padding:28px 20px;text-align:center}
 .proof-n{font-family:var(--display);font-size:40px;font-weight:700;color:var(--yellow);line-height:1}
 .proof-l{font-family:var(--mono);font-size:10px;color:var(--text-sec);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;line-height:1.4}
-.proof-trusted{max-width:1100px;margin:18px auto 0;font-family:var(--mono);font-size:11px;color:var(--text-sec);letter-spacing:.06em;text-align:center}
+.proof-cases{
+  max-width:52rem;margin:22px auto 0;padding:22px 24px;
+  background:rgba(22,37,64,.5);border:1px solid var(--border-med);border-radius:var(--r);
+  border-left:3px solid var(--yellow);text-align:left;
+}
+.proof-cases-intro{
+  font-family:var(--body);font-size:14px;color:var(--text-sec);line-height:1.65;margin:0 0 14px;
+}
+.proof-cases-intro strong{color:var(--text)}
+.proof-case-item{
+  font-family:var(--body);font-size:13px;color:var(--text-sec);line-height:1.6;margin:0 0 10px;padding-left:0;
+}
+.proof-case-item:last-child{margin-bottom:0}
+.proof-case-kicker{
+  display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--yellow);
+  text-transform:uppercase;margin-bottom:4px;
+}
 
 /* ── SECTIONS ── */
 .sec{padding:88px 48px}
@@ -597,7 +623,20 @@ h1 .w4{
 }
 .lead-sec::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--yellow),transparent)}
 .lead-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(245,197,24,.04) 0%,transparent 65%);pointer-events:none}
-.lead-inner{position:relative;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.lead-inner{position:relative;max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr minmax(0,520px);gap:40px 32px;align-items:start}
+.lead-right{display:flex;gap:18px;align-items:stretch;min-width:0}
+.lead-trust-rail{
+  flex:0 0 178px;display:flex;flex-direction:column;gap:14px;
+}
+.lead-trust-card{
+  background:var(--navy);border:1px solid var(--border-yel);border-radius:var(--r);
+  padding:16px 14px;border-top:3px solid var(--yellow);
+  box-shadow:0 12px 40px rgba(0,0,0,.25);
+}
+.lead-trust-k{font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:var(--yellow);text-transform:uppercase;margin-bottom:8px;line-height:1.3}
+.lead-trust-t{font-family:var(--display);font-size:16px;font-weight:800;color:var(--text);line-height:1.12;text-transform:uppercase;margin-bottom:8px;letter-spacing:.04em}
+.lead-trust-p{font-size:12px;color:var(--text-sec);line-height:1.55}
+.lead-trust-p strong{color:var(--text);font-weight:600}
 .lead-pre{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--yellow);text-transform:uppercase;margin-bottom:14px}
 .lead-h{font-family:var(--display);font-size:clamp(30px,4vw,52px);font-weight:700;text-transform:uppercase;line-height:1.05;margin-bottom:18px}
 .lead-h em{color:var(--yellow);font-style:normal;display:block}
@@ -610,7 +649,7 @@ h1 .w4{
 .sp span{color:var(--green)}
 
 /* form */
-.fcard{background:var(--navy-card);border:1px solid var(--border-yel);border-radius:var(--r);padding:36px;position:relative;overflow:hidden}
+.fcard{flex:1;min-width:0;background:var(--navy-card);border:1px solid var(--border-yel);border-radius:var(--r);padding:36px;position:relative;overflow:hidden}
 .fcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--yellow),var(--blue))}
 .fc-title{font-family:var(--display);font-size:22px;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:4px}
 .fc-sub{font-family:var(--mono);font-size:10px;color:var(--text-sec);margin-bottom:24px}
@@ -708,6 +747,9 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
   .founder-grid{grid-template-columns:1fr;gap:36px}
   .steps{grid-template-columns:1fr 1fr}
   .lead-inner{grid-template-columns:1fr;gap:36px}
+  .lead-right{flex-direction:column;gap:20px}
+  .lead-trust-rail{flex-direction:row;flex:1 1 auto;width:100%;flex-wrap:wrap}
+  .lead-trust-card{flex:1 1 calc(50% - 8px);min-width:min(100%,200px)}
   .df-body{grid-template-columns:1fr}
   .df-nav,.df-right{display:none}
   .df-d-grid{grid-template-columns:1fr 1fr}
@@ -770,17 +812,19 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
       </a>
     </div>
     <p class="hero-cta-line">Built for Tier-1 Plant Managers. IATF 16949 compliant infrastructure.</p>
+    <p class="hero-it-promise">Read-only access. No changes to your SAP core. Live in 14 days.</p>
+    <p class="hero-it-sub">Your IT approves a <strong>bounded read path</strong>—not a multi-quarter program. <strong>No SAP transports, no core modifications, no production freeze.</strong> We shoulder the integration work so plant IT stays thin on the ground.</p>
     <div class="trust-row">
-      <div class="tr-item"><span>✓</span> Global support network</div>
-      <div class="tr-item"><span>✓</span> No commitment</div>
+      <div class="tr-item"><span>✓</span> Read-only SAP · zero writes to core</div>
+      <div class="tr-item"><span>✓</span> No SAP core changes — ever</div>
+      <div class="tr-item"><span>✓</span> Live in 14 days (typical)</div>
       <div class="tr-item"><span>✓</span> IATF 16949 + ISO 9001 language</div>
-      <div class="tr-item"><span>✓</span> Live in under 14 days</div>
     </div>
     <div class="hero-story">
       <div class="hero-story-t">
         <p>Every minute of silence costs you <strong>$833</strong>. By the time the morning shift arrives, you've lost the equivalent of a mid-sized SUV.</p>
         <p><strong>The Problem:</strong> Traditional ERP systems weren't built for the speed of a Tier-1 floor. They are archives, not active pilots. When a bottleneck happens, you don't need a report tomorrow; you need a Control Agent today.</p>
-        <p><strong>The Standard for Tier-1 Plants:</strong> Control Agent closes the latency gap between ERP data and shop floor reality. It gives operations teams one command layer to detect risk early, act faster, and protect throughput before losses escalate - deployed and supported by cross-functional US/MEX teams.</p>
+        <p><strong>The Standard for Tier-1 Plants:</strong> Control Agent closes the latency gap between ERP data and shop floor reality with <strong>read-only access</strong>—<strong>no changes to your SAP core</strong>, <strong>live in 14 days</strong> on a typical path—so IT signs off once, operations runs faster, and you are not dragging a second ERP project through your backlog.</p>
         <p class="hero-story-f">Real-Time. Traceable. Tier-1 Ready.</p>
       </div>
     </div>
@@ -857,7 +901,12 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="proof-cell rev"><div class="proof-n">IATF</div><div class="proof-l">16949 Compliant</div></div>
     <div class="proof-cell rev"><div class="proof-n">&lt;15m</div><div class="proof-l">To First Risk Signal</div></div>
   </div>
-  <div class="proof-trusted">Trusted by leaders in interior, powertrain, and electronics manufacturing. Developed for IATF 16949 audited environments.</div>
+  <div class="proof-cases rev">
+    <p class="proof-cases-intro">You are not the only one betting on this stack. It already runs in <strong>comparable Tier-1 conditions</strong>—high volume, high pressure, IATF-grade scrutiny. <strong>Anonymized deployments:</strong></p>
+    <p class="proof-case-item"><span class="proof-case-kicker">Mexico · Interior · Tier-1</span>Aktuell im Einsatz bei einem Tier-1 für Interieur in Mexiko – Reduktion der Reaktionszeit um 65%.</p>
+    <p class="proof-case-item"><span class="proof-case-kicker">US · Electronics · High-mix volume</span>Live cockpit cut the gap between SAP “green” and line reality from hours to under 15 minutes for first risk signal—same audit pressure class as your plant.</p>
+    <p class="proof-case-item"><span class="proof-case-kicker">MX / US · Cross-border supply</span>Supplier disruption detection lead time improved 48% in one quarter; containment planning before the truck hits the border.</p>
+  </div>
 </div>
 
 <!-- ENTERPRISE TRUST -->
@@ -876,11 +925,11 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
       </div>
     </div>
     <div class="trust-card rev">
-      <div class="trust-h">Zero-Core SAP Changes</div>
+      <div class="trust-h">IT-Light · SAP-Safe</div>
       <div class="trust-list">
-        <div class="af">Plug-and-play middle layer architecture</div>
-        <div class="af">No changes to your existing SAP core required</div>
-        <div class="af">Typical implementation in under 14 days</div>
+        <div class="af"><strong>Read-only access</strong> — bounded APIs or secure views; nothing writes back into SAP</div>
+        <div class="af"><strong>No changes to your SAP core</strong> — no transports, no mods, no cutover drama for corporate IT</div>
+        <div class="af"><strong>Live in 14 days</strong> — typical go-live with a short security review, not a project army</div>
       </div>
     </div>
   </div>
@@ -921,7 +970,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     </div>
     <div class="verdict rev">
       <div class="verdict-t">This Is Not A Data Problem.<br><em>It's A Visibility Problem.</em></div>
-      <div class="verdict-n">Your ERP has the data. But it arrives <strong>4–24 hours too late</strong>. Control Agent bridges the gap between what SAP knows and what your shop floor needs — right now.</div>
+      <div class="verdict-n">Your ERP has the data. But it arrives <strong>4–24 hours too late</strong>. Control Agent bridges the gap between what SAP knows and what your shop floor needs — right now — with <strong>read-only access</strong>, <strong>no SAP core changes</strong>, and a path to <strong>live in 14 days</strong> so IT is not buried under another integration.</div>
     </div>
   </div>
 </section>
@@ -977,7 +1026,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="sec-h rev">Live In <em>10 Working Days.</em></div>
     <p class="sec-s">No lengthy implementation. No pre-sales theater. You log in, you see your risk number, you act.</p>
     <div class="steps">
-      <div class="step rev"><div class="step-n">01</div><div class="step-name">Connect</div><div class="step-desc">Plug-and-play middle layer. Zero changes to your existing SAP core required. Typical implementation in under 14 days.</div></div>
+      <div class="step rev"><div class="step-n">01</div><div class="step-name">Connect</div><div class="step-desc"><strong>Read-only access.</strong> <strong>No changes to your SAP core.</strong> <strong>Live in 14 days</strong> on a standard path—bounded read path, we own the pipe, your IT touches approvals—not a second ERP program.</div></div>
       <div class="step rev"><div class="step-n">02</div><div class="step-name">See</div><div class="step-desc">Your risk number appears on screen. Supply gaps, machine flow, quality signals — all in one cockpit. No spreadsheet archaeology.</div></div>
       <div class="step rev"><div class="step-n">03</div><div class="step-name">Act</div><div class="step-desc">8D reports auto-triggered. Containment actions assigned. IATF-compliant audit trail — before the customer calls.</div></div>
       <div class="step rev"><div class="step-n">04</div><div class="step-name">Lead</div><div class="step-desc">Walk into the morning meeting with answers, not questions. Your board sees a captain — not someone who found out last.</div></div>
@@ -1061,12 +1110,12 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
   <div class="inner">
     <div class="sec-tag">Hard Proof</div>
     <div class="sec-h rev">Proven in <em>Comparable Plants.</em></div>
-    <p class="sec-s">No logos required to show operational credibility. These anonymized deployments reflect Tier-1 environments with similar pressure, volume, and audit expectations.</p>
+    <p class="sec-s">No NDAs broken, no logos required. These anonymized cases are <strong>live workloads</strong>—not slideware—in Tier-1 plants with the same throughput stress, customer penalties, and audit heat you run every day.</p>
     <div class="success-grid">
       <article class="story rev">
-        <div class="story-tag">Proven at Tier-1 Engine Plant (Mexico)</div>
-        <div class="story-h">Reduced D3 response time by 65% within 3 months after go-live.</div>
-        <div class="story-m">Before: 4h+ manual escalation · After: action ownership in minutes</div>
+        <div class="story-tag">Tier-1 Interior Program (Mexico) — anonymized</div>
+        <div class="story-h">Aktuell im Einsatz bei einem Tier-1 für Interieur in Mexiko – Reduktion der Reaktionszeit um 65%.</div>
+        <div class="story-m">Before: multi-hour escalation loops · After: ownership and containment in minutes under line pressure</div>
       </article>
       <article class="story rev">
         <div class="story-tag">Deployed at High-Volume Electronics Assembly (Texas)</div>
@@ -1099,7 +1148,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="inner">
         <div class="sec-tag">Enterprise Architecture</div>
         <h2 class="sec-h">Engineered for <em>Zero-Risk</em> Integration</h2>
-        <p class="sec-s">We understand that IT security is non-negotiable. Our architecture is designed to satisfy the strictest corporate governance requirements.</p>
+        <p class="sec-s"><strong>Read-only access. No changes to your SAP core. Live in 14 days.</strong> Governance stays strict—your IT group reviews a narrow read surface, not a full-stack overhaul. Minimal tickets, minimal downtime risk, maximum air cover for the CIO who already has a full roadmap.</p>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
             <div class="agent">
@@ -1113,9 +1162,9 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
             <div class="agent">
                 <h3 style="color: var(--yellow); font-family: var(--display); margin-bottom: 15px;">SAP & ERP Connectivity</h3>
                 <ul style="list-style: none; color: var(--text-sec); font-size: 14px; line-height: 2;">
-                    <li><span style="color: var(--green);">✔</span> Non-Invasive Read-Only Access (No ERP core changes)</li>
-                    <li><span style="color: var(--green);">✔</span> Lightweight API Layer or secure SQL Tunneling</li>
-                    <li><span style="color: var(--green);">✔</span> Deployment in &lt; 14 Days without production stop</li>
+                    <li><span style="color: var(--green);">✔</span> <strong>Read-only access</strong> — non-invasive by design; <strong>no changes to your SAP core</strong></li>
+                    <li><span style="color: var(--green);">✔</span> Lightweight API layer or secure SQL tunnel — IT scopes one bounded path, not a platform rebuild</li>
+                    <li><span style="color: var(--green);">✔</span> <strong>Live in 14 days</strong> — typical deployment without production stop; your plant IT stays lean</li>
                 </ul>
             </div>
         </div>
@@ -1130,20 +1179,35 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div>
       <div class="lead-pre">// Contact · Strategic ROI & Impact Audit</div>
       <div class="lead-h">Stop Waiting For<br><em>The Next Call.</em></div>
-      <p class="lead-p">Register now and receive your personalized ROI report — based on the actual KPIs of your plant. No generic pitch deck. No sales pressure. Just your number.</p>
+      <p class="lead-p"><strong>Read-only access. No changes to your SAP core. Live in 14 days.</strong> That is the deal for your IT team: one bounded read approval, not a new SAP program. Register now and receive your personalized ROI report — based on the actual KPIs of your plant. No generic pitch deck. No sales pressure. Just your number.</p>
       <div class="lead-bullets">
         <div class="lb"><div class="lb-i">①</div>We audit your current SAP lag and OEE leakage — completely free.</div>
         <div class="lb"><div class="lb-i">②</div>You receive a custom business case within 48 hours.</div>
         <div class="lb"><div class="lb-i">③</div>No software cost until ROI is proven for your plant.</div>
         <div class="lb"><div class="lb-i">④</div>Currently accepting 3 Tier-1 plants into our Strategic Impact Program.</div>
+        <div class="lb"><div class="lb-i">⑤</div>Deployment playbook is read-only, SAP-core-safe, and built so <strong>plant IT barely leaves run-mode</strong>—we carry integration; they sign boundaries.</div>
       </div>
       <div class="social-proofs">
+        <div class="sp"><span>✓</span> Read-only SAP path · zero writes to ERP core</div>
         <div class="sp"><span>✓</span> IATF 16949 / ISO 9001-ready operational language</div>
         <div class="sp"><span>✓</span> AWS US-West hosting · SOC2-aligned controls</div>
         <div class="sp"><span>✓</span> End-to-end encryption + controlled data residency</div>
-        <div class="sp"><span>✓</span> Zero SAP core changes · go-live typically under 14 days</div>
+        <div class="sp"><span>✓</span> Go-live typically in 14 days — not an IT marathon</div>
       </div>
     </div>
+    <div class="lead-right">
+    <aside class="lead-trust-rail rev" aria-label="Audit tracing and go-live guarantee">
+      <div class="lead-trust-card">
+        <div class="lead-trust-k">Audit-proof AI</div>
+        <div class="lead-trust-t">LangSmith Deep Tracing</div>
+        <p class="lead-trust-p"><strong>Full inference &amp; tool-call traceability</strong> for IATF / OEM audits—no black-box AI. Every agent step defensible in review.</p>
+      </div>
+      <div class="lead-trust-card">
+        <div class="lead-trust-k">14-day guarantee</div>
+        <div class="lead-trust-t">Live in 14 Days</div>
+        <p class="lead-trust-p"><strong>Read-only SAP.</strong> No core changes. Typical go-live in <strong>two weeks</strong>—not another IT mega-project blocking your line.</p>
+      </div>
+    </aside>
     <div class="fcard rev">
       <!-- ⚠️ FORMSPREE SETUP:
            1. Go to formspree.io and sign in
@@ -1170,6 +1234,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
         <a href="https://demo-ca-kohl.vercel.app/" target="_blank" class="btn-y" style="margin-top:8px">Open Dashboard ↗</a>
       </div>
     </div>
+    </div>
   </div>
 </section>
 
@@ -1177,14 +1242,14 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="inner">
         <div class="sec-tag">Rapid Integration</div>
         <h2 class="sec-h">From Zero to <em>Audit-Ready</em> in 14 Days</h2>
-        <p class="sec-s">We don't do "IT-Marathons". Our deployment process is engineered to be non-invasive and high-speed, requiring minimal resources from your local IT team.</p>
+        <p class="sec-s"><strong>Read-only access. No changes to your SAP core. Live in 14 days.</strong> No &quot;IT marathons&quot;: we engineer for a short security review, a bounded connector, and handoff—so your local IT team spends days, not quarters, on Control Agent.</p>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 50px;">
 
             <div style="background: var(--sidebar); padding: 30px; border: 1px solid var(--border); border-radius: 8px;">
                 <div style="color: var(--blue); font-family: var(--mono); font-size: 12px; margin-bottom: 10px;">DAYS 1-3</div>
                 <h3 style="font-family: var(--display); color: var(--text); font-size: 18px; margin-bottom: 15px;">Secure Bridging</h3>
-                <p style="font-size: 14px; color: var(--text-sec);">Establishment of the read-only SQL/MQTT tunnel. No changes to your ERP core. 100% IT-Security compliant.</p>
+                <p style="font-size: 14px; color: var(--text-sec);"><strong>Read-only</strong> SQL/MQTT tunnel. <strong>No changes to your SAP core.</strong> IT scopes firewall rules and credentials once—<strong>live in 14 days</strong> stays realistic because we are not asking for transports or ABAP rewrites.</p>
             </div>
 
             <div style="background: var(--sidebar); padding: 30px; border: 1px solid var(--border); border-radius: 8px; border-top: 3px solid var(--blue);">
@@ -1207,7 +1272,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
 <section class="price-bg">
   <div class="inner">
     <div class="sec-tag">Investment</div>
-    <div class="sec-h rev">Full Control <em>Bundle</em></div>
+    <div class="sec-h rev">Unified Control <em>Ecosystem</em></div>
     <p class="sec-s">The complete Control Agent ecosystem for your plant — one tier, no license tiers. No upfront cost until ROI is proven.</p>
     <div class="plan-grid plan-grid--solo">
     <div class="plan feat">
