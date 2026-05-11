@@ -200,8 +200,12 @@ h1 .w4{
 @keyframes slideIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .dash-shot{
   width:100%;
+  height:auto;
   display:block;
+  vertical-align:middle;
   border-radius:var(--r);
+  object-fit:contain;
+  background:var(--navy-mid);
 }
 
 /* ═══ Master Console — HTML replica (matches live app) ═══ */
@@ -632,6 +636,7 @@ input::placeholder{color:#64748B}
 .price-bg{background:var(--navy);padding:88px 48px}
 .price-bg::before{content:'';display:block;height:1px;background:linear-gradient(90deg,transparent,var(--yellow),transparent);margin-bottom:88px}
 .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:36px}
+.plan-grid--solo{grid-template-columns:1fr;max-width:440px;margin:0 auto 0}
 .plan{background:var(--navy-mid);padding:36px 28px;display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--r)}
 .plan.feat{background:var(--navy-card);border-top:3px solid var(--yellow)}
 .plan-tag{font-family:var(--mono);font-size:9px;color:var(--yellow);letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
@@ -767,105 +772,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="hero-right-glow"></div>
     <div style="width:100%;max-width:780px;position:relative">
       <div class="dash-replica">
-        <div class="mc-dash mc-dash--hero">
-          <header class="mc-top">
-            <div class="mc-top-brand">
-              <div class="mc-top-stripe" aria-hidden="true"></div>
-              <div>
-                <div class="mc-top-t">Control Agent</div>
-                <div class="mc-top-s">Master Console</div>
-              </div>
-            </div>
-            <div class="mc-top-lang">English ▾</div>
-          </header>
-          <div class="mc-body">
-            <nav class="mc-nav" aria-label="Demo navigation">
-              <div class="mc-nav-item act"><span class="mc-nav-dot"></span> Dashboard Overview</div>
-              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Active 8D-Reports</div>
-              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Supply Agent</div>
-              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Flow Agent</div>
-              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Quality Agent</div>
-            </nav>
-            <main class="mc-main">
-              <div class="mc-toolbar">
-                <div>
-                  <div class="mc-risk-lbl">Global Risk Level</div>
-                  <div class="mc-risk-val">MAJOR</div>
-                </div>
-                <div class="mc-toolbar-right">
-                  <div class="mc-row">
-                    <label class="mc-cb"><input type="checkbox" checked disabled> Enable Audit-Mode</label>
-                    <span class="mc-pill">IATF 10.2 COMPLIANT</span>
-                    <span class="mc-btn-silence">Silence Alerts</span>
-                  </div>
-                  <div class="mc-fin-row">
-                    <div class="mc-fin-box">
-                      <div class="mc-fin-title">Financial Counter</div>
-                      <div class="mc-fin-val"><span>--- USD</span><span class="mc-fin-locked">Locked</span></div>
-                      <div class="mc-fin-note">Role TEAM_MEMBER cannot unmask. Click Locked to unlock for demo mode.</div>
-                    </div>
-                    <div class="mc-dt">
-                      <label>Downtime Cost ($/hr)</label>
-                      <input type="text" value="50000" readonly tabindex="-1" aria-readonly="true">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="mc-board-h">
-                <div class="mc-board-t">The Control Board</div>
-                <div class="mc-board-s">D1–D8 task cards with ownership details.</div>
-              </div>
-              <div class="mc-d-grid">
-                <div class="mc-card">
-                  <div class="mc-card-h"><span class="mc-d-num">D1</span><span class="mc-badge green">GREEN</span></div>
-                  <div class="mc-card-meta"><span>Assignee</span><span>Nina Bauer</span><span>Role</span><span>D_STEP_OWNER</span></div>
-                  <div class="mc-dl">12.5.2026, 00:35:48</div>
-                  <div class="mc-card-btns"><button type="button">Generate D1 report</button><button type="button">Download</button></div>
-                  <div class="mc-card-foot">No report generated yet.</div>
-                </div>
-                <div class="mc-card">
-                  <div class="mc-card-h"><span class="mc-d-num">D2</span><span class="mc-badge yellow">YELLOW</span></div>
-                  <div class="mc-card-meta"><span>Assignee</span><span>Tom Schmidt</span><span>Role</span><span>D_STEP_OWNER</span></div>
-                  <div class="mc-dl">12.5.2026, 01:12:03</div>
-                  <div class="mc-card-btns"><button type="button">Generate D2 report</button><button type="button">Download</button></div>
-                  <div class="mc-card-foot">No report generated yet.</div>
-                </div>
-                <div class="mc-card">
-                  <div class="mc-card-h"><span class="mc-d-num">D3</span><span class="mc-badge green">GREEN</span></div>
-                  <div class="mc-card-meta"><span>Assignee</span><span>Lisa Chen</span><span>Role</span><span>D_STEP_OWNER</span></div>
-                  <div class="mc-dl">12.5.2026, 02:08:51</div>
-                  <div class="mc-card-btns"><button type="button">Generate D3 report</button><button type="button">Download</button></div>
-                  <div class="mc-card-foot">No report generated yet.</div>
-                </div>
-                <div class="mc-card">
-                  <div class="mc-card-h"><span class="mc-d-num">D4</span><span class="mc-badge yellow">YELLOW</span></div>
-                  <div class="mc-card-meta"><span>Assignee</span><span>Marco Ruiz</span><span>Role</span><span>D_STEP_OWNER</span></div>
-                  <div class="mc-dl">12.5.2026, 03:44:19</div>
-                  <div class="mc-card-btns"><button type="button">Generate D4 report</button><button type="button">Download</button></div>
-                  <div class="mc-card-foot">No report generated yet.</div>
-                </div>
-              </div>
-            </main>
-            <aside class="mc-tl" aria-label="Traffic light status">
-              <div class="mc-tl-t">Traffic Light Status</div>
-              <div class="mc-tl-s">Immediate risk signal for operations.</div>
-              <div class="mc-bulbs">
-                <div class="mc-bulb-w">
-                  <div class="mc-bulb on g" aria-hidden="true"></div>
-                  <span class="mc-bulb-lbl g">GREEN</span>
-                </div>
-                <div class="mc-bulb-w">
-                  <div class="mc-bulb off y" aria-hidden="true"></div>
-                  <span class="mc-bulb-lbl y">YELLOW</span>
-                </div>
-                <div class="mc-bulb-w">
-                  <div class="mc-bulb off r" aria-hidden="true"></div>
-                  <span class="mc-bulb-lbl r">RED</span>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </div>
+        <img class="dash-shot" src="dashboard-master-console.png" width="1200" height="675" alt="Control Agent Master Console dashboard">
       </div>
       <!-- CTA overlay bottom of dashboard -->
       <div class="dash-cta-overlay">
@@ -1165,105 +1072,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="sec-h rev">This Is What You See <em>When You Log In.</em></div>
     <p class="sec-s">Not a spreadsheet. Not a SAP report from 4 hours ago. Real data. Real-time. One screen.</p>
     <div class="dash-full rev">
-        <div class="mc-dash mc-dash--section">
-          <header class="mc-top">
-            <div class="mc-top-brand">
-              <div class="mc-top-stripe" aria-hidden="true"></div>
-              <div>
-                <div class="mc-top-t">Control Agent</div>
-                <div class="mc-top-s">Master Console</div>
-              </div>
-            </div>
-            <div class="mc-top-lang">English ▾</div>
-          </header>
-          <div class="mc-body">
-            <nav class="mc-nav" aria-label="Demo navigation">
-              <div class="mc-nav-item act"><span class="mc-nav-dot"></span> Dashboard Overview</div>
-              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Active 8D-Reports</div>
-              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Supply Agent</div>
-              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Flow Agent</div>
-              <div class="mc-nav-item"><span class="mc-nav-dot"></span> Quality Agent</div>
-            </nav>
-            <main class="mc-main">
-              <div class="mc-toolbar">
-                <div>
-                  <div class="mc-risk-lbl">Global Risk Level</div>
-                  <div class="mc-risk-val">MAJOR</div>
-                </div>
-                <div class="mc-toolbar-right">
-                  <div class="mc-row">
-                    <label class="mc-cb"><input type="checkbox" checked disabled> Enable Audit-Mode</label>
-                    <span class="mc-pill">IATF 10.2 COMPLIANT</span>
-                    <span class="mc-btn-silence">Silence Alerts</span>
-                  </div>
-                  <div class="mc-fin-row">
-                    <div class="mc-fin-box">
-                      <div class="mc-fin-title">Financial Counter</div>
-                      <div class="mc-fin-val"><span>--- USD</span><span class="mc-fin-locked">Locked</span></div>
-                      <div class="mc-fin-note">Role TEAM_MEMBER cannot unmask. Click Locked to unlock for demo mode.</div>
-                    </div>
-                    <div class="mc-dt">
-                      <label>Downtime Cost ($/hr)</label>
-                      <input type="text" value="50000" readonly tabindex="-1" aria-readonly="true">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="mc-board-h">
-                <div class="mc-board-t">The Control Board</div>
-                <div class="mc-board-s">D1–D8 task cards with ownership details.</div>
-              </div>
-              <div class="mc-d-grid">
-                <div class="mc-card">
-                  <div class="mc-card-h"><span class="mc-d-num">D1</span><span class="mc-badge green">GREEN</span></div>
-                  <div class="mc-card-meta"><span>Assignee</span><span>Nina Bauer</span><span>Role</span><span>D_STEP_OWNER</span></div>
-                  <div class="mc-dl">12.5.2026, 00:35:48</div>
-                  <div class="mc-card-btns"><button type="button">Generate D1 report</button><button type="button">Download</button></div>
-                  <div class="mc-card-foot">No report generated yet.</div>
-                </div>
-                <div class="mc-card">
-                  <div class="mc-card-h"><span class="mc-d-num">D2</span><span class="mc-badge yellow">YELLOW</span></div>
-                  <div class="mc-card-meta"><span>Assignee</span><span>Tom Schmidt</span><span>Role</span><span>D_STEP_OWNER</span></div>
-                  <div class="mc-dl">12.5.2026, 01:12:03</div>
-                  <div class="mc-card-btns"><button type="button">Generate D2 report</button><button type="button">Download</button></div>
-                  <div class="mc-card-foot">No report generated yet.</div>
-                </div>
-                <div class="mc-card">
-                  <div class="mc-card-h"><span class="mc-d-num">D3</span><span class="mc-badge green">GREEN</span></div>
-                  <div class="mc-card-meta"><span>Assignee</span><span>Lisa Chen</span><span>Role</span><span>D_STEP_OWNER</span></div>
-                  <div class="mc-dl">12.5.2026, 02:08:51</div>
-                  <div class="mc-card-btns"><button type="button">Generate D3 report</button><button type="button">Download</button></div>
-                  <div class="mc-card-foot">No report generated yet.</div>
-                </div>
-                <div class="mc-card">
-                  <div class="mc-card-h"><span class="mc-d-num">D4</span><span class="mc-badge yellow">YELLOW</span></div>
-                  <div class="mc-card-meta"><span>Assignee</span><span>Marco Ruiz</span><span>Role</span><span>D_STEP_OWNER</span></div>
-                  <div class="mc-dl">12.5.2026, 03:44:19</div>
-                  <div class="mc-card-btns"><button type="button">Generate D4 report</button><button type="button">Download</button></div>
-                  <div class="mc-card-foot">No report generated yet.</div>
-                </div>
-              </div>
-            </main>
-            <aside class="mc-tl" aria-label="Traffic light status">
-              <div class="mc-tl-t">Traffic Light Status</div>
-              <div class="mc-tl-s">Immediate risk signal for operations.</div>
-              <div class="mc-bulbs">
-                <div class="mc-bulb-w">
-                  <div class="mc-bulb on g" aria-hidden="true"></div>
-                  <span class="mc-bulb-lbl g">GREEN</span>
-                </div>
-                <div class="mc-bulb-w">
-                  <div class="mc-bulb off y" aria-hidden="true"></div>
-                  <span class="mc-bulb-lbl y">YELLOW</span>
-                </div>
-                <div class="mc-bulb-w">
-                  <div class="mc-bulb off r" aria-hidden="true"></div>
-                  <span class="mc-bulb-lbl r">RED</span>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </div>
+        <img class="dash-shot" src="dashboard-master-console.png" width="1200" height="675" alt="Control Agent Master Console dashboard">
     </div>
     <!-- CTA after seeing dashboard — highest psychological moment -->
     <div class="dashsec-cta">
@@ -1385,38 +1194,11 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
 <section class="price-bg">
   <div class="inner">
     <div class="sec-tag">Investment</div>
-    <div class="sec-h rev">Choose Your <em>Protection Level.</em></div>
-    <p class="sec-s">We don't sell licenses. We protect production lines. No upfront cost until ROI is proven for your plant.</p>
-<div class="plan-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-
-    <div class="plan">
-        <div class="plan-tag">OEE Optimization</div>
-        <div class="plan-name">Flow Agent</div>
-        <div class="plan-price">$1,000<span style="font-size: 14px;">/mo</span></div>
-        <div style="font-family: var(--mono); font-size: 11px; color: var(--blue); margin-bottom: 20px;">$12,000 / Year</div>
-        <div class="plan-fts">
-            <div class="pf"><span>✔</span> OEE Real-Time Monitoring</div>
-            <div class="pf"><span>✔</span> Bottleneck AI Analysis</div>
-            <div class="pf"><span>✔</span> Cycle Time Optimization</div>
-        </div>
-        <a href="#lead-sec" class="plan-btn">Deploy Flow</a>
-    </div>
-
-    <div class="plan">
-        <div class="plan-tag">Quality & Logistics</div>
-        <div class="plan-name">Supply Agent</div>
-        <div class="plan-price">$1,000<span style="font-size: 14px;">/mo</span></div>
-        <div style="font-family: var(--mono); font-size: 11px; color: var(--blue); margin-bottom: 20px;">$12,000 / Year</div>
-        <div class="plan-fts">
-            <div class="pf"><span>✔</span> Automated 8D Reporting</div>
-            <div class="pf"><span>✔</span> ERP Supply Chain Sync</div>
-            <div class="pf"><span>✔</span> Material Flow Prediction</div>
-        </div>
-        <a href="#lead-sec" class="plan-btn">Deploy Supply</a>
-    </div>
-
-    <div class="plan" style="border: 2px solid var(--yellow); transform: scale(1.05); background: var(--navy-card);">
-        <div class="plan-tag" style="background: var(--yellow); color: black;">Full Ecosystem</div>
+    <div class="sec-h rev">Full Control <em>Bundle</em></div>
+    <p class="sec-s">The complete Control Agent ecosystem for your plant — one tier, no license tiers. No upfront cost until ROI is proven.</p>
+    <div class="plan-grid plan-grid--solo">
+    <div class="plan feat">
+        <div class="plan-tag">Full Ecosystem</div>
         <div class="plan-name">Full Control Bundle</div>
         <div class="plan-price">$2,500<span style="font-size: 14px;">/mo</span></div>
         <div style="font-family: var(--mono); font-size: 11px; color: var(--yellow); margin-bottom: 20px;">$30,000 / Year</div>
@@ -1428,7 +1210,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
         </div>
         <a href="#lead-sec" class="plan-btn">Deploy Full Control</a>
     </div>
-</div>
+    </div>
 
 <div style="margin-top: 30px; background: rgba(245, 197, 24, 0.08); border: 1px solid var(--border-yel); padding: 15px; text-align: center; border-radius: 8px;">
     <span style="font-family: var(--display); font-weight: bold;">+ $5,000 ONE-TIME SETUP FEE</span>
@@ -1454,7 +1236,8 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
   <div class="flinks">
     <a href="#">Privacy Policy</a>
     <a href="#">Legal Notice</a>
-    <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank">Open Dashboard ↗</a>
+    <a href="https://github.com/macuba24/Landingpage_Mex_11_05_26_" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" rel="noopener noreferrer">Open Dashboard ↗</a>
   </div>
   <div class="fops">CONTROL AGENT GLOBAL OPERATIONS</div>
   <div class="fhotline">24/7 PRIORITY SUPPORT FOR ENTERPRISE CLIENTS</div>
