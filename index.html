@@ -151,7 +151,29 @@ h1 .w4{
 .hero-story-t strong{color:var(--text)}
 .hero-story-f{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--yellow);text-transform:uppercase}
 
-.hero-btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+.hero-btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.hero-cta-line{
+  font-size:13px;font-weight:500;color:var(--text-sec);line-height:1.55;
+  max-width:520px;margin:0 0 28px;padding-left:2px;
+}
+/* Executive hero CTAs — Tailwind-style yellow-500 + preview rail */
+.btn-hero-roi{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:#EAB308;color:#0f172a;
+  font-family:var(--display);font-size:17px;font-weight:800;letter-spacing:.04em;
+  padding:15px 28px;border-radius:6px;border:none;cursor:pointer;text-decoration:none;
+  transition:background .2s,transform .2s,box-shadow .2s;
+}
+.btn-hero-roi:hover{background:#CA8A04;color:#0f172a;transform:translateY(-2px);box-shadow:0 10px 28px rgba(234,179,8,.35)}
+.btn-hero-preview{
+  display:inline-flex;align-items:center;gap:10px;
+  background:transparent;color:var(--text);
+  font-family:var(--display);font-size:16px;font-weight:600;letter-spacing:.04em;
+  padding:14px 22px;border-radius:6px;border:1px solid rgba(255,255,255,.2);
+  cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s,transform .2s;
+}
+.btn-hero-preview:hover{border-color:rgba(255,255,255,.4);color:#fff;transform:translateY(-1px)}
+.hero-play-ic{flex-shrink:0;opacity:.95}
 .btn-y{
   display:inline-flex;align-items:center;gap:8px;
   background:var(--yellow);color:var(--navy);
@@ -756,9 +778,13 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
       </div>
     </div>
     <div class="hero-btns">
-      <a href="#lead" class="btn-y">Book a Demo <span class="arr">→</span></a>
-      <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="btn-ghost">Open Dashboard <span class="arr">↗</span></a>
+      <a href="#lead" class="btn-hero-roi">Request Executive ROI Briefing</a>
+      <a href="https://app.supademo.com/demo/cmp14t5qy2i9g4qultoofmh57?utm_source=link" target="_blank" rel="noopener noreferrer" class="btn-hero-preview">
+        <svg class="hero-play-ic" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7L8 5z"/></svg>
+        Watch System Preview
+      </a>
     </div>
+    <p class="hero-cta-line">Built for Tier-1 Plant Managers. IATF 16949 compliant infrastructure.</p>
     <div class="trust-row">
       <div class="tr-item"><span>✓</span> Global support network</div>
       <div class="tr-item"><span>✓</span> No commitment</div>
