@@ -167,12 +167,13 @@ h1 .w4{
 .btn-hero-roi:hover{background:#CA8A04;color:#0f172a;transform:translateY(-2px);box-shadow:0 10px 28px rgba(234,179,8,.35)}
 .btn-hero-preview{
   display:inline-flex;align-items:center;gap:10px;
-  background:transparent;color:var(--text);
+  background:rgba(255,255,255,.06);color:#fff;
   font-family:var(--display);font-size:16px;font-weight:600;letter-spacing:.04em;
-  padding:14px 22px;border-radius:6px;border:1px solid rgba(255,255,255,.2);
-  cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s,transform .2s;
+  padding:14px 22px;border-radius:6px;border:1px solid rgba(255,255,255,.35);
+  box-shadow:0 0 0 1px rgba(0,0,0,.2) inset;
+  cursor:pointer;text-decoration:none;transition:border-color .2s,background .2s,transform .2s;
 }
-.btn-hero-preview:hover{border-color:rgba(255,255,255,.4);color:#fff;transform:translateY(-1px)}
+.btn-hero-preview:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.55);transform:translateY(-1px)}
 .hero-play-ic{flex-shrink:0;opacity:.95}
 .btn-y{
   display:inline-flex;align-items:center;gap:8px;
@@ -192,7 +193,41 @@ h1 .w4{
 .arr{transition:transform .2s}
 .btn-y:hover .arr,.btn-ghost:hover .arr{transform:translateX(4px)}
 
-.trust-row{display:flex;flex-wrap:wrap;gap:18px}
+.trust-row{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:28px}
+
+/* Inline Supademo — #demo anchor from hero CTA */
+.demo-embed-sec{
+  background:var(--navy-mid);padding:72px 48px;border-top:1px solid var(--border);
+  scroll-margin-top:72px;
+}
+.demo-embed-frame{
+  width:100%;max-width:1100px;margin:28px auto 0;height:min(72vh,720px);min-height:440px;
+  border-radius:var(--r);overflow:hidden;border:1px solid var(--border-med);
+  background:var(--navy-card);box-shadow:0 24px 70px rgba(0,0,0,.4);
+}
+.demo-embed-frame iframe{width:100%;height:100%;border:0;display:block}
+
+/* Nav "See Demo" — Supademo opens in overlay (demo hidden until click) */
+.supademo-nav-modal{
+  position:fixed;inset:0;z-index:400;display:flex;align-items:center;justify-content:center;
+  padding:max(16px,2vw);visibility:hidden;opacity:0;transition:opacity .28s ease,visibility .28s;
+  pointer-events:none;
+}
+.supademo-nav-modal.open{visibility:visible;opacity:1;pointer-events:auto}
+.supademo-nav-modal-backdrop{position:absolute;inset:0;background:rgba(5,8,15,.85);backdrop-filter:blur(5px);cursor:pointer}
+.supademo-nav-modal-panel{
+  position:relative;width:min(96vw,1100px);height:min(88vh,740px);min-height:min(70vh,480px);
+  border-radius:10px;overflow:hidden;border:1px solid var(--border-med);
+  box-shadow:0 28px 100px rgba(0,0,0,.65);z-index:1;background:var(--navy-card);
+  display:flex;flex-direction:column;
+}
+.supademo-nav-modal-close{
+  position:absolute;top:10px;right:12px;z-index:2;width:42px;height:42px;border:none;border-radius:8px;
+  background:rgba(0,0,0,.4);color:#fff;font-size:24px;line-height:1;cursor:pointer;font-family:var(--display);
+  transition:background .2s;
+}
+.supademo-nav-modal-close:hover{background:rgba(0,0,0,.65)}
+.supademo-nav-modal-panel iframe{flex:1;width:100%;min-height:0;border:0}
 .tr-item{font-family:var(--mono);font-size:11px;color:var(--text-dim);display:flex;align-items:center;gap:5px}
 .tr-item span{color:var(--green)}
 
@@ -727,6 +762,8 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
   .sec,.dashsec,.lead-sec,.price-bg,.final,.founder-bg{padding:60px 20px}
   .pain-bg,.agents-bg,.how-bg{padding:60px 20px}
   footer{flex-direction:column;text-align:center;padding:20px}
+  .demo-embed-sec{padding:52px 20px}
+  .demo-embed-frame{height:min(58vh,560px);min-height:360px;margin-top:20px}
 }
 </style>
 </head>
@@ -746,7 +783,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     <div class="pill pill-green">IATF 10.2 COMPLIANT</div>
   </div>
   <div class="nav-right">
-    <a href="#lead" class="nbtn nbtn-ghost">Free Audit</a>
+    <a href="#demo" class="nbtn nbtn-ghost" id="navSeeDemo">See Demo</a>
     <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="nbtn nbtn-yellow">Open Dashboard →</a>
   </div>
 </nav>
@@ -768,18 +805,9 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
       <span class="w2">YOUR LINE IN PUEBLA IS DOWN.</span>
       <span class="w4">You check SAP. It says everything is "in progress." But the shop floor tells a different story.</span>
     </h1>
-    <div class="hero-story">
-      <img class="hero-story-img" src="rainer-hero.png" alt="Portrait of Rainer Hampicke">
-      <div class="hero-story-t">
-        <p>Every minute of silence costs you <strong>$833</strong>. By the time the morning shift arrives, you've lost the equivalent of a mid-sized SUV.</p>
-        <p><strong>The Problem:</strong> Traditional ERP systems weren't built for the speed of a Tier-1 floor. They are archives, not active pilots. When a bottleneck happens, you don't need a report tomorrow; you need a Control Agent today.</p>
-        <p><strong>The Standard for Tier-1 Plants:</strong> Control Agent closes the latency gap between ERP data and shop floor reality. It gives operations teams one command layer to detect risk early, act faster, and protect throughput before losses escalate - deployed and supported by cross-functional US/MEX teams.</p>
-        <p class="hero-story-f">Real-Time. Traceable. Tier-1 Ready.</p>
-      </div>
-    </div>
     <div class="hero-btns">
       <a href="#lead" class="btn-hero-roi">Request Executive ROI Briefing</a>
-      <a href="https://app.supademo.com/demo/cmp14t5qy2i9g4qultoofmh57?utm_source=link" target="_blank" rel="noopener noreferrer" class="btn-hero-preview">
+      <a href="#demo" class="btn-hero-preview">
         <svg class="hero-play-ic" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7L8 5z"/></svg>
         Watch System Preview
       </a>
@@ -790,6 +818,15 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
       <div class="tr-item"><span>✓</span> No commitment</div>
       <div class="tr-item"><span>✓</span> IATF 16949 + ISO 9001 language</div>
       <div class="tr-item"><span>✓</span> Live in under 14 days</div>
+    </div>
+    <div class="hero-story">
+      <img class="hero-story-img" src="rainer-hero.png" alt="Portrait of Rainer Hampicke">
+      <div class="hero-story-t">
+        <p>Every minute of silence costs you <strong>$833</strong>. By the time the morning shift arrives, you've lost the equivalent of a mid-sized SUV.</p>
+        <p><strong>The Problem:</strong> Traditional ERP systems weren't built for the speed of a Tier-1 floor. They are archives, not active pilots. When a bottleneck happens, you don't need a report tomorrow; you need a Control Agent today.</p>
+        <p><strong>The Standard for Tier-1 Plants:</strong> Control Agent closes the latency gap between ERP data and shop floor reality. It gives operations teams one command layer to detect risk early, act faster, and protect throughput before losses escalate - deployed and supported by cross-functional US/MEX teams.</p>
+        <p class="hero-story-f">Real-Time. Traceable. Tier-1 Ready.</p>
+      </div>
     </div>
   </div>
 
@@ -808,6 +845,21 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
         </a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- Supademo embedded on-page (hero "Watch System Preview" → #demo) -->
+<section id="demo" class="demo-embed-sec">
+  <div class="inner">
+    <div class="sec-tag">Interactive walkthrough</div>
+    <h2 class="sec-h">System <em>Preview</em></h2>
+    <p class="sec-s">Guided demo powered by Supademo — runs here on the landing page. Expand the player for full view.</p>
+    <div class="demo-embed-frame">
+      <iframe src="https://app.supademo.com/embed/cmp14t5qy2i9g4qultoofmh57?utm_source=embed" title="Control Agent — interactive demo (Supademo)" allow="clipboard-write; fullscreen" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <p style="font-family:var(--mono);font-size:10px;color:var(--text-dim);text-align:center;margin-top:16px;letter-spacing:.06em;">
+      <a href="https://app.supademo.com/demo/cmp14t5qy2i9g4qultoofmh57?utm_source=link" target="_blank" rel="noopener noreferrer" style="color:var(--text-sec);">Open demo in new tab ↗</a>
+    </p>
   </div>
 </section>
 
@@ -1102,8 +1154,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     </div>
     <!-- CTA after seeing dashboard — highest psychological moment -->
     <div class="dashsec-cta">
-      <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="btn-y" style="font-size:18px;padding:16px 36px">Open Live Dashboard <span class="arr">↗</span></a>
-      <a href="#lead" class="btn-ghost" style="font-size:18px;padding:16px 30px">Book a Demo <span class="arr">→</span></a>
+      <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-y" style="font-size:18px;padding:16px 36px">Open Live Dashboard <span class="arr">↗</span></a>
     </div>
   </div>
 </section>
@@ -1165,13 +1216,13 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
       -->
       <div id="formBody">
         <div class="fc-title">Book Your Demo</div>
-        <div class="fc-sub">// Free · No commitment · Response within 48h</div>
+        <div class="fc-sub">// Contact the founder · Direct reply from Rainer Hampicke · Within 48h</div>
         <form id="leadForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="fg"><label>Name *</label><input type="text" name="name" placeholder="John Smith" required></div>
           <div class="fg"><label>Company Email *</label><input type="email" name="email" placeholder="john.smith@company.com" required></div>
-          <input type="hidden" name="_subject" value="New Control Agent Lead – Strategic Impact Audit">
-          <button type="submit" class="submit-btn">Book Demo <span>→</span></button>
-          <div class="form-disc">NO SPAM · NO PRE-SALES · YOUR BUSINESS CASE FIRST</div>
+          <input type="hidden" name="_subject" value="New Control Agent Lead – Book Demo (founder contact)">
+          <button type="submit" class="submit-btn">Book Your Demo <span>→</span></button>
+          <div class="form-disc">NO SPAM · FOUNDER-LED · YOUR USE CASE FIRST</div>
           <div class="form-contact">US/MEX Hotline: +1 (713) 555-0149 · +52 (222) 555-0149</div>
           <div class="form-support">24/7 PRIORITY SUPPORT FOR ENTERPRISE CLIENTS</div>
         </form>
@@ -1179,7 +1230,7 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
       <div class="form-success" id="formSuccess">
         <div class="fs-icon">✅</div>
         <div class="fs-title">You're In.</div>
-        <div class="fs-sub">Your audit request has been received.<br>Our operations and solution team will review your plant profile and respond within 48 hours with your custom ROI report.<br><br>Feel free to explore the live dashboard in the meantime.</div>
+        <div class="fs-sub">Your demo request has been received.<br>Rainer will review your plant profile personally and follow up within 48 hours.<br><br>Feel free to explore the live dashboard or the interactive preview in the meantime.</div>
         <a href="https://control-agent-zaibs5cxq-macuba24s-projects.vercel.app/" target="_blank" class="btn-y" style="margin-top:8px">Open Dashboard ↗</a>
       </div>
     </div>
@@ -1309,6 +1360,15 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
     </div>
 </section>
 
+<!-- Supademo in overlay (triggered by nav #navSeeDemo — iframe loads on first open) -->
+<div id="supademoNavModal" class="supademo-nav-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Interactive demo">
+  <div class="supademo-nav-modal-backdrop" data-close-supademo tabindex="-1"></div>
+  <div class="supademo-nav-modal-panel">
+    <button type="button" class="supademo-nav-modal-close" data-close-supademo aria-label="Close demo">&times;</button>
+    <iframe id="supademoNavModalFrame" title="Control Agent — Supademo (nav)" data-src="https://app.supademo.com/embed/cmp14t5qy2i9g4qultoofmh57?utm_source=nav_modal" loading="lazy" allow="clipboard-write; fullscreen"></iframe>
+  </div>
+</div>
+
 <script>
 // Live counter
 let base = 724160;
@@ -1340,6 +1400,36 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
     } else { btn.textContent = 'Error — please try again'; btn.disabled = false; }
   } catch { btn.textContent = 'Error — please try again'; btn.disabled = false; }
 });
+
+// Nav "See Demo" — open Supademo in modal (hidden until click; lazy iframe src)
+(function () {
+  const modal = document.getElementById('supademoNavModal');
+  const frame = document.getElementById('supademoNavModalFrame');
+  const navBtn = document.getElementById('navSeeDemo');
+  if (!modal || !frame || !navBtn) return;
+  function openModal() {
+    const url = frame.getAttribute('data-src');
+    if (url && !frame.getAttribute('src')) frame.setAttribute('src', url);
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  navBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    openModal();
+  });
+  modal.querySelectorAll('[data-close-supademo]').forEach(function (el) {
+    el.addEventListener('click', closeModal);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+})();
 
 // Scroll reveal
 const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('in') }), {threshold:.08});
