@@ -678,6 +678,8 @@ h1 .w4{
 .lead-bullets{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
 .lb{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text-sec);line-height:1.5}
 .lb-i{width:20px;height:20px;background:var(--yellow-dim);border:1px solid var(--yellow);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:10px;color:var(--yellow);font-weight:700}
+/* One flex child for copy — inline <strong> must not become sibling flex items */
+.lb-t{flex:1;min-width:0}
 .social-proofs{display:flex;flex-direction:column;gap:8px}
 .sp{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--text-dim)}
 .sp span{color:var(--green)}
@@ -702,6 +704,7 @@ input::placeholder{color:#64748B}
 .roi-box-lbl{font-family:var(--mono);font-size:9px;color:var(--text-dim);letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
 .roi-box-val{font-family:var(--display);font-size:36px;font-weight:700;color:var(--yellow);line-height:1}
 .roi-box-note{font-family:var(--mono);font-size:10px;color:var(--text-dim);margin-top:4px}
+#leadRoiBox{margin-top:10px;margin-bottom:0}
 .submit-btn{
   width:100%;background:var(--yellow);color:var(--navy);
   font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:.06em;
@@ -1315,11 +1318,11 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
       <div class="lead-h">Stop Waiting For<br><em>The Next Call.</em></div>
       <p class="lead-p">The IT deal is simple: <strong>one signed read approval</strong>, not a new SAP program. <strong>And for you as plant leadership:</strong> you are not introducing a <strong>reckless AI bet</strong>—you are the <strong>hero who digitized the line and the audit trail</strong> with <strong>controlled risk your board can understand</strong>. <strong>Stop the line, not the IATF story:</strong> <strong>gapless LangSmith protocols</strong> and <strong>engineer-controlled 8Ds</strong> protect the certificate, not just OEE. Register now for your personalized ROI report — based on the actual KPIs of your plant. No generic pitch deck. No sales pressure. Just your number.</p>
       <div class="lead-bullets">
-        <div class="lb"><div class="lb-i">①</div>We audit your current SAP lag and OEE leakage — completely free.</div>
-        <div class="lb"><div class="lb-i">②</div>You receive a custom business case within 48 hours.</div>
-        <div class="lb"><div class="lb-i">③</div>No software cost until ROI is proven for your plant.</div>
-        <div class="lb"><div class="lb-i">④</div>Currently accepting <strong>three</strong> additional Tier-1 plants in the <strong>US or Mexico</strong> for our Strategic Impact Program.</div>
-        <div class="lb"><div class="lb-i">⑤</div>Deployment playbook is <strong>connector-first, core-safe</strong>, and built so <strong>plant IT barely leaves run-mode</strong>—we carry integration; they sign boundaries.</div>
+        <div class="lb"><div class="lb-i">①</div><span class="lb-t">We audit your current SAP lag and OEE leakage — completely free.</span></div>
+        <div class="lb"><div class="lb-i">②</div><span class="lb-t">You receive a custom business case within 48 hours.</span></div>
+        <div class="lb"><div class="lb-i">③</div><span class="lb-t">No software cost until ROI is proven for your plant.</span></div>
+        <div class="lb"><div class="lb-i">④</div><span class="lb-t">Currently accepting <strong>three</strong> additional Tier-1 plants in the <strong>US or Mexico</strong> for our Strategic Impact Program.</span></div>
+        <div class="lb"><div class="lb-i">⑤</div><span class="lb-t">Deployment playbook is <strong>connector-first, core-safe</strong>, and built so <strong>plant IT barely leaves run-mode</strong>—we carry integration; they sign boundaries.</span></div>
       </div>
       <div class="social-proofs">
         <div class="sp"><span>✓</span> SAP boundary stays write-protected—reads only at the connector</div>
@@ -1349,11 +1352,33 @@ footer{padding:26px 48px;border-top:1px solid var(--border);display:flex;align-i
         <div class="fc-title">Contact</div>
         <div class="fc-sub">// Founder-led replies · US &amp; Mexico time zones · typically within 48h</div>
         <form id="leadForm" action="https://formspree.io/f/mbdwyerk" method="POST">
-          <div class="fg"><label for="lead-full-name">Full name *</label><input id="lead-full-name" type="text" name="full-name" placeholder="John Smith" required autocomplete="name"></div>
-          <div class="fg"><label for="lead-email">Email *</label><input id="lead-email" type="email" name="email" placeholder="you@company.com" required autocomplete="email"></div>
-          <div class="fg"><label for="lead-location">Plant / site location (Werk) *</label><input id="lead-location" type="text" name="location" placeholder="e.g. Puebla, MX · Detroit, US · plant / site code" required></div>
-          <div class="fg"><label for="lead-company">Company</label><input id="lead-company" type="text" name="company" placeholder="Legal entity (optional)"></div>
-          <div class="fg"><label for="lead-role">Role</label><input id="lead-role" type="text" name="role" placeholder="Your role (optional)"></div>
+          <div class="fg"><label for="lead-full-name">Name *</label><input id="lead-full-name" type="text" name="full-name" placeholder="Your name" required autocomplete="name"></div>
+          <div class="fg"><label for="lead-company">Company *</label><input id="lead-company" type="text" name="company" placeholder="Legal entity" required autocomplete="organization"></div>
+          <div class="fg"><label for="lead-role">Role *</label>
+            <select id="lead-role" name="role" required>
+              <option value="" disabled selected>Select role</option>
+              <option value="Plant Manager">Plant Manager</option>
+              <option value="Quality">Quality</option>
+              <option value="Supply Chain">Supply Chain</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="fg"><label for="lead-plant-location">Plant location *</label>
+            <select id="lead-plant-location" name="plant-location" required>
+              <option value="" disabled selected>Select location</option>
+              <option value="Mexico">Mexico</option>
+              <option value="USA">USA</option>
+              <option value="Germany">Germany</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="fg"><label for="lead-email">Company email *</label><input id="lead-email" type="email" name="email" placeholder="you@company.com" required autocomplete="email"></div>
+          <div class="fg"><label for="lead-stop-cost">Hourly cost if line stops (USD)</label><input id="lead-stop-cost" type="number" name="line-stop-hourly-usd" min="0" step="1" placeholder="e.g. 120" inputmode="decimal" autocomplete="off"></div>
+          <div id="leadRoiBox" class="roi-box" style="display:none" role="status" aria-live="polite">
+            <div class="roi-box-lbl">Directional ROI signal</div>
+            <div class="roi-box-val" id="leadRoiVal">$0</div>
+            <div class="roi-box-note">Illustrative figure (your entry × 4.5)—not a quote; for discussion only.</div>
+          </div>
           <input type="hidden" name="_subject" value="New Control Agent Lead – Contact (founder)">
           <button type="submit" class="submit-btn" id="leadSubmitBtn">Contact <span>→</span></button>
           <div class="form-disc">NO SPAM · FOUNDER-LED · YOUR USE CASE FIRST</div>
@@ -1517,14 +1542,24 @@ setInterval(() => {
   document.getElementById('liveNum').textContent = '$' + base.toLocaleString('en-US');
 }, 1400);
 
-// ROI calc
-function calcROI() {
-  const v = parseFloat(document.getElementById('riskIn').value);
-  const box = document.getElementById('roiBox');
-  if (v && v > 0) {
-    document.getElementById('roiVal').textContent = '$' + Math.round(v * 4.5).toLocaleString('en-US');
+// Lead form: live ROI hint under hourly stop cost
+function updateLeadRoi() {
+  var input = document.getElementById('lead-stop-cost');
+  var box = document.getElementById('leadRoiBox');
+  var valEl = document.getElementById('leadRoiVal');
+  if (!input || !box || !valEl) return;
+  var v = parseFloat(input.value);
+  if (v > 0 && isFinite(v)) {
+    valEl.textContent = '$' + Math.round(v * 4.5).toLocaleString('en-US');
     box.style.display = 'block';
-  } else { box.style.display = 'none'; }
+  } else {
+    box.style.display = 'none';
+  }
+}
+var leadStopCost = document.getElementById('lead-stop-cost');
+if (leadStopCost) {
+  leadStopCost.addEventListener('input', updateLeadRoi);
+  leadStopCost.addEventListener('change', updateLeadRoi);
 }
 
 // Formspree AJAX
